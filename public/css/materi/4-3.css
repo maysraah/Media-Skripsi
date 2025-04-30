@@ -1,0 +1,109 @@
+li {
+  margin-bottom: 10px;
+}
+
+.list-item {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(71, 134, 250);
+  text-align: center;
+  line-height: 50px;
+  border: 1px solid black;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+}
+.search-box {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: yellow;
+  text-align: center;
+  line-height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  border: 3px solid black;
+  transition: transform 0.5s ease-in-out;
+  top: -70px; /* Pastikan posisinya terlihat di atas daftar angka */
+  left: 0; /* Awal berada di posisi pertama */
+}
+.list-item.found {
+  background-color: green;
+  color: white;
+}
+.list-item.not-found {
+  background-color: red;
+}
+
+.list-item.sentinel {
+  background-color: #ccc;
+  font-style: italic;
+}
+
+.highlight {
+  background-color: #ffeb3b;
+} */
+
+.controls-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#list-container-soal {
+  display: flex;
+  gap: 8px; /* Jarak antar input */
+  flex-wrap: wrap; /* Supaya responsif di layar kecil */
+}
+
+#questions ol {
+  padding-left: 20px;
+}
+
+.questions {
+  margin-top: 20px;
+  text-align: justify;
+  font-size: 16px;
+  /* color: #2c3e50; */
+}
+.questions li {
+  margin-bottom: 10px;
+}
+
+.inputJawaban, #sentinel {
+  text-align: center;
+  border: 2px solid #011B78;
+  padding: 6px 10px;
+  font-size: 16px;
+  width: 70px;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+.inputJawaban {
+  text-align: center;
+  border: 2px solid #011B78;
+  padding: 6px 10px;
+  font-size: 16px;
+  width: 70px;
+  height: 50px;
+  box-sizing: border-box;
+}
+
+#jawaban1,
+#jawaban11 {
+  width: 80px;
+}
+
+#jawaban10 {
+  width: 300px;
+}
+
+#jawaban12 {
+  width: 120px;
+}
+
+.inputJawaban.salah {
+  border-color: red;
+}

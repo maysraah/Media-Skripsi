@@ -1,0 +1,124 @@
+.question-container {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: 0.3s ease-in-out;
+}
+
+.question-container:hover {
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.timer {
+  font-weight: bold;
+}
+
+.question-number {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #011B78;
+  margin-bottom: 10px;
+}
+
+.question {
+  font-size: 1.2rem;
+  color: #333333;
+  margin-bottom: 20px;
+}
+
+.options {
+  list-style-type: none;
+  padding: 0;
+}
+
+.options li {
+  margin: 10px 0;
+  border: 1px solid #dcdcdc;
+  border-radius: 8px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.options li:hover {
+  background-color: #f1f1f1;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.question-navigation {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.question-navigation button {
+  width: 50px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background-color: #dee2e6;
+  font-weight: bold;
+}
+
+.question-navigation button.active {
+  background-color: #0d6efd; /* Biru Bootstrap */
+  color: #ffffff;
+  border: 2px solid #0a58ca;
+  box-shadow: 0 0 5px rgba(13, 110, 253, 0.5);
+}
+
+.question-navigation button.answered {
+  background-color: #011B78;
+  color: white;
+}
+
+.question-navigation button.ragu {
+  background-color: yellow;
+}
+
+.submit-container {
+  margin-top: 20px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.legend-color {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+/* Sesuaikan warnanya dengan tombol navigasi */
+.legend-color.active {
+  background-color: #0d6efd;
+  border: 2px solid #0a58ca;
+}
+
+.legend-color.answered {
+  background-color: #011B78;
+}
+
+.legend-color.ragu {
+  background-color: yellow;
+}
+
+.legend-color.belum {
+  background-color: #dee2e6;
+}

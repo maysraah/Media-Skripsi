@@ -1,0 +1,113 @@
+li {
+    margin-bottom: 10px;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px auto;
+}
+
+  .list-container {
+    display: flex;
+    /* justify-content: center; */
+    gap: 10px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.list-item {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(71, 134, 250);
+    text-align: center;
+    line-height: 50px;
+    border: 1px solid black;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    position: relative;
+}
+
+.search-box {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: yellow;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bold;
+    border: 3px solid black;
+    transition: transform 0.5s ease-in-out;
+    /* top: -70px; Agar terlihat di atas daftar angka */
+    left: 0;
+}
+
+.found {
+    background-color: green !important;
+}
+
+.not-found {
+    background-color: red !important;
+}
+
+.soal {
+    display: none;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .soal.active {
+    display: block;
+  }
+  
+  .grid {
+    display: flex;
+    gap: 5px;
+    margin: 10px 0;
+  }
+  
+  .kotak {
+    width: 50px;
+    height: 50px;
+    background-color: steelblue;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+    border: 2px solid #333;
+  }
+  
+  .answers {
+    display: flex;
+    justify-content: center;   /* Pusat horizontal */
+    align-items: center;       /* Pusat vertikal jika dibutuhkan */
+    gap: 16px;                 /* Jarak antar tombol */
+    margin-top: 20px;
+    flex-wrap: wrap;           /* Supaya responsif di layar kecil */
+  }
+  
+  .answer-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    background-color: white;
+    color: #007bff;
+    transition: all 0.3s ease;
+  }
+  
+  .answer-btn:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .soal strong {
+    display: block;
+    margin-top: 15px;
+    font-size: 16px;
+  }
