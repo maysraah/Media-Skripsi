@@ -10,7 +10,7 @@
 <h5 style="color:#011B78">(4) Algoritma</h5>
 
 <div style="display: flex; justify-content: center; align-items: center;">
-    <img class="centered" style="width: 350px;" src="{{ asset('storage/img/bahan-kue.jpg') }}" alt="Rak Buku di Perpustakaan">
+    <img class="centered" style="width: 350px;" src="{{ asset('storage/img/bahan-kue.jpeg') }}" alt="Alat dan Bahan Kue">
 </div><br>
 
 <p class="text-justify" style="text-indent: 2em; padding-left: 20px;">
