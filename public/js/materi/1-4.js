@@ -40,7 +40,7 @@ function checkAnswers() {
         Swal.fire({
             icon: 'success',
             title: 'Selamat!',
-            text: 'Semua jawaban Anda benar!'
+            text: 'Semua jawaban Anda benar! Kerja Bagus!'
         }).then(() => {
             document.getElementById("feedback").style.display = "block";
         });
@@ -48,7 +48,7 @@ function checkAnswers() {
         Swal.fire({
             icon: 'error',
             title: 'Coba lagi!',
-            text: 'Beberapa jawaban Anda salah. Periksa kembali yang ditandai.'
+            text: 'Beberapa jawaban Anda salah. Periksa kembali yang ditandai. Semangat!'
         });
     }
 }

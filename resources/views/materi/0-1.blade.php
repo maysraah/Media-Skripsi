@@ -21,6 +21,9 @@
 <h3 class="fw-bold text-center" style="color:#011B78">PENDAHULUAN</h3>
 
 <p><strong>Bayangkan:</strong> Kamu sedang berada di <strong>perpustakaan sekolah</strong> dan ingin mencari buku favoritmu di antara ratusan buku di rak. Apa yang biasanya kamu lakukan?</p>
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img class="centered" style="width: 350px;" src="{{ asset('storage/img/perpustakaan.jpg') }}" alt="Rak Buku di Perpustakaan">
+</div><br>
 <ul>
     <li>📚 Kamu mulai dari rak paling awal dan memeriksa satu per satu sampai menemukan bukunya.</li>
     <li>📚 Kamu langsung menuju bagian rak yang sesuai dengan kategori atau label buku.</li>

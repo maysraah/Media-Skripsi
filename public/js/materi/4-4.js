@@ -100,11 +100,11 @@ function validate() {
 
     if (isCorrect) {
         localStorage.setItem("kelompokBenar", "true");
-        Swal.fire('Berhasil!', 'Jawaban Anda benar!', 'success').then(() => {
+        Swal.fire('Berhasil!', 'Jawaban Anda benar! Bagus sekali!', 'success').then(() => {
             document.getElementById("pengenalan-pola").style.display = "block";
         });
     } else {
-        Swal.fire('Coba Lagi!', 'Masih ada kesalahan.', 'error');
+        Swal.fire('Coba Lagi!', 'Masih ada kesalahan. Yuk perbaiki!!', 'error');
     }
 }
 
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const user = Array.from(sortedZone.querySelectorAll(".item")).map(i => i.textContent.trim());
 
         if (JSON.stringify(user) === JSON.stringify(correct)) {
-            Swal.fire('Urutan sudah benar!', '', 'success').then(() => {
+            Swal.fire('Kerja Bagus! Urutan sudah benar!', '', 'success').then(() => {
                 document.getElementById("abstraksi").style.display = "block";
                 document.getElementById("linear-section").style.display = "block";
                 saveUserOrder();
@@ -236,7 +236,7 @@ document.getElementById("check-button").addEventListener("click", () => {
 function cekJumlahLangkah() {
     const input = document.getElementById("jumlahLangkah").value;
     if (input == 5) {
-        Swal.fire("Selamat!", "Ditemukan dalam " + input + " langkah!", "success");
+        Swal.fire("Selamat!", "Ditemukan dalam " + input + " langkah! Kerja Bagus!!", "success");
         document.getElementById("biner-section").style.display = "block";
     } else {
         Swal.fire("Coba lagi!", "Jumlah langkah belum tepat.", "error");
@@ -306,7 +306,7 @@ document.getElementById("check-button-biner").addEventListener("click", () => {
 function cekJumlahLangkahBiner() {
     const input = document.getElementById("jumlahLangkahBiner").value;
     if (input == 3) {
-        Swal.fire("Selamat!", "Ditemukan dalam " + input + " langkah!", "success");
+        Swal.fire("Selamat!", "Ditemukan dalam " + input + " langkah! Kerja Bagus!!", "success");
         document.getElementById("sentinel-section").style.display = "block";
     } else {
         Swal.fire("Coba lagi!", "Jumlah langkah belum tepat.", "error");
@@ -388,7 +388,7 @@ document.getElementById("check-button-sentinel").addEventListener("click", () =>
 function cekJumlahLangkahSentinel() {
     const input = document.getElementById("jumlahLangkahSentinel").value;
     if (input == 5) {
-        Swal.fire("Selamat!", "Ditemukan dalam " + input + " langkah!", "success");
+        Swal.fire("Selamat!", "Ditemukan dalam " + input + " langkah! Kerja Bagus!!", "success");
         document.getElementById("hasil-section").style.display = "block";
     } else {
         Swal.fire("Coba lagi!", "Jumlah langkah belum tepat.", "error");
@@ -410,10 +410,10 @@ const kunciJawabanLangkah = {
       const kunci = kunciJawabanLangkah[id].toLowerCase();
 
       if (jawaban === kunci) {
-        Swal.fire("Benar!", "Mangga ditemukan pada indeks ke-5 dan jumlah langkah setiap algoritma tepat!", "success");
+        Swal.fire("Benar!", "Mangga ditemukan pada indeks ke-5 dan jumlah langkah setiap algoritma tepat! Kerja Bagus!!", "success");
         document.getElementById("quiz-section").style.display = "block";
       } else {
-        Swal.fire("Coba lagi!", "Jawaban belum tepat.", "error");
+        Swal.fire("Coba lagi yaa!", "Jawaban belum tepat. Ayo Semangat!!", "error");
       }
     }
   };
@@ -458,7 +458,7 @@ function checkAnswersQuiz() {
         Swal.fire({
             icon: 'success',
             title: 'Selamat!',
-            text: 'Semua jawaban Anda benar!'
+            text: 'Semua jawaban Anda benar! Bagus sekali!'
         });
     } else {
         Swal.fire({

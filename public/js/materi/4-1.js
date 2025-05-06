@@ -143,7 +143,7 @@ document.querySelectorAll(".answer-btn").forEach(btn => {
       if (isCorrect) {
         Swal.fire({
           title: "Benar!",
-          text: "Jawaban kamu tepat!",
+          text: "Jawaban kamu tepat! Kerja Bagus!",
           icon: "success",
           showConfirmButton: false,
           timer: 1500
@@ -162,7 +162,7 @@ document.querySelectorAll(".answer-btn").forEach(btn => {
           } else {
             Swal.fire({
               title: "Selesai!",
-              text: "Kamu sudah menyelesaikan semua soal!",
+              text: "Kamu sudah menyelesaikan semua soal! Kerja Bagus!",
               icon: "success",
               showConfirmButton: false,
               timer: 2000
@@ -209,14 +209,14 @@ function checkAnswers() {
     if (allCorrect) {
         Swal.fire({
             title: 'Selamat!',
-            text: 'Semua jawaban benar!',
+            text: 'Semua jawaban benar! Bagus Sekali!',
             icon: 'success',
             confirmButtonText: 'Ok'
         });
     } else {
         Swal.fire({
             title: 'Ada yang salah!',
-            text: 'Periksa kembali jawaban Anda.',
+            text: 'Periksa kembali jawaban Anda. Ayo semangat!!',
             icon: 'error',
             confirmButtonText: 'Ok'
         });

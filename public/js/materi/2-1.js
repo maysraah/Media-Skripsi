@@ -38,7 +38,7 @@ function checkAnswers() {
         Swal.fire({
             icon: 'success',
             title: 'Selamat!',
-            text: 'Semua jawaban Anda benar!'
+            text: 'Semua jawaban Anda benar! Kerja Bagus!'
         });
     } else {
         Swal.fire({
@@ -128,7 +128,7 @@ function validate() {
     if (isCorrect) {
         Swal.fire({
             title: 'Berhasil!',
-            text: 'Jawaban Anda benar! Semua nama telah dikelompokkan dengan tepat.',
+            text: 'Bagus Sekali! Jawaban Anda benar! Semua nama telah dikelompokkan dengan tepat.',
             icon: 'success',
             confirmButtonText: 'OK'
         }).then(() => {
