@@ -70,48 +70,49 @@
                 </div>
             </form>
 
-
             <!-- Table -->
-            <table class="table table-bordered" id="nilaiTable">
-                <thead class="table-light">
-                    <tr>
-                        <th>No</th>
-                        <th>Nama</th>
-                        <th>Kelas</th>
-                        <th>Nilai Terakhir</th>
-                        <th>Waktu Pengerjaan</th>
-                        <th>Banyak Percobaan</th>
-                        <th>Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse($siswa as $index => $item)
-                        @php
-                            $nilaiItem = $item->nilai->first();
-                        @endphp
+            <div class="table-responsive">
+                <table class="table table-bordered" id="nilaiTable">
+                    <thead class="table-light">
                         <tr>
-                            <td>{{ $index + 1 }}</td>
-                            <td>{{ $item->user->name ?? 'N/A' }}</td>
-                            <td>{{ $item->kelas }}</td>
-                            <td>{{ $item->nilai_tertinggi->nilai ?? 0 }}</td>
-                            <td>{{ $item->nilai_tertinggi->waktu_pengerjaan ?? '00:00:00' }}</td>
-                            <td>{{ $item->nilai_tertinggi->percobaan ?? 0 }}</td>
-                            <td>
-                                <form id="hapus-nilai-{{ $item->user_id }}" action="{{ route('nilai.hapus') }}" method="POST" class="d-inline">
-                                    @csrf
-                                    <input type="hidden" name="user_id" value="{{ $item->user_id }}">
-                                    <input type="hidden" name="jenis_tes" value="{{ $jenisTes }}">
-                                    <button type="button" class="btn btn-danger btn-sm" onclick="konfirmasiHapus('{{ $item->user_id }}')">Hapus</button>
-                                </form>                                
-                            </td>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>Kelas</th>
+                            <th>Nilai Terakhir</th>
+                            <th>Waktu Pengerjaan</th>
+                            <th>Banyak Percobaan</th>
+                            <th>Aksi</th>
                         </tr>
-                    @empty
-                        <tr>
-                            <td colspan="6" class="text-center">Tidak ada data.</td>
-                        </tr>
-                    @endforelse
-                </tbody>                
-            </table>
+                    </thead>
+                    <tbody>
+                        @forelse($siswa as $index => $item)
+                            @php
+                                $nilaiItem = $item->nilai->first();
+                            @endphp
+                            <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $item->user->name ?? 'N/A' }}</td>
+                                <td>{{ $item->kelas }}</td>
+                                <td>{{ $item->nilai_tertinggi->nilai ?? 0 }}</td>
+                                <td>{{ $item->nilai_tertinggi->waktu_pengerjaan ?? '00:00:00' }}</td>
+                                <td>{{ $item->nilai_tertinggi->percobaan ?? 0 }}</td>
+                                <td>
+                                    <form id="hapus-nilai-{{ $item->user_id }}" action="{{ route('nilai.hapus') }}" method="POST" class="d-inline">
+                                        @csrf
+                                        <input type="hidden" name="user_id" value="{{ $item->user_id }}">
+                                        <input type="hidden" name="jenis_tes" value="{{ $jenisTes }}">
+                                        <button type="button" class="btn btn-danger btn-sm" onclick="konfirmasiHapus('{{ $item->user_id }}')">Hapus</button>
+                                    </form>                                
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="6" class="text-center">Tidak ada data.</td>
+                            </tr>
+                        @endforelse
+                    </tbody>                
+                </table>
+            </div>
         </div>
     </div>
 </div>
