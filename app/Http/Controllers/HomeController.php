@@ -24,4 +24,9 @@ class HomeController extends Controller
         return view('tentang');
     }
 
+    public function petunjuk()
+    {
+        return view('petunjuk');
+    }
+
 }

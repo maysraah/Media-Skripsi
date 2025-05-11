@@ -15,6 +15,7 @@ use App\Http\Controllers\{
 // Halaman umum
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/tentang', [HomeController::class, 'tentang'])->name('tentang');
+Route::get('/petunjuk', [HomeController::class, 'petunjuk'])->name('petunjuk');
 Route::get('/register', [RegisterController::class, 'show'])->name('register.show');
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 Route::get('/login', [LoginController::class, 'show'])->name('login');
