@@ -8,13 +8,22 @@
     <link rel="icon" type="image/png" href="{{ asset('storage/img/logo.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            font-size: var(--base-font-size);
+        }
+
         .btn-nav:hover {
-          color: #011B78 !important;
+            color: #011B78 !important;
         }
 
         .btn-login:hover {
             background-color: #0335c2 !important;
             color: white !important;
+        }
+
+        li {
+            padding: 5px;
         }
     </style>
 </head>
@@ -61,28 +70,30 @@
                 </h5>
                 <div style="display: flex; justify-content: center; align-items: center;">
                     <img class="centered" src="{{ asset('storage/img/landing-page.jpg') }}" alt="Halaman Beranda"
-                        style="max-width: 100%; height: auto; width: 400px;">
+                        style="max-width: 100%; height: auto; width: 700px;">
                 </div><br>
+                <h5>Keterangan:</h5>
                 <ol>
-                    <li><b>Navigasi</b> untuk berpindah ke halaman <b>Beranda, Petunjuk Penggunaan, dan Tentang.</b></li>
-                    <li>Tombol <b>"Masuk"</b> untuk masuk ke akun yang sudah terdaftar dan tombol <b>"Daftar"</b> daftar akun baru.</li>
-                    <li>Tombol <b>"Mulai Sekarang"</b> untuk memulai pembelajaran bagi siswa. Tombol <b>"Halaman Guru"</b> untuk Guru.</li>
-                    <li>Informasi fitur-fitur yang tersedia dalam media pembelajaran ini.</li>
+                    <li><b>Navigasi</b> untuk berpindah ke halaman <b>Beranda, Petunjuk Penggunaan,</b> dan <b>Tentang.</b></li>
+                    <li>Tombol <b>"Masuk"</b> berfungsi untuk masuk ke akun yang sudah terdaftar dan tombol <b>"Daftar"</b> berfungsi untuk daftar akun bagi pengguna baru.</li>
+                    <li>Tombol <b>"Mulai Sekarang"</b> berisi materi pembelajaran bagi siswa. Tombol <b>"Halaman Guru"</b> berisi tabel data siswa dan tabel nilai siswa yang dibutuhkan Guru.</li>
+                    <li>Berisi informasi mengenai fitur-fitur yang tersedia dalam media pembelajaran ini.</li>
                 </ol><br>
                 <h5 class="mb-4 fw-bold">
                     Halaman Materi
                 </h5>
                 <div style="display: flex; justify-content: center; align-items: center;">
                     <img class="centered" src="{{ asset('storage/img/materi-page.png') }}" alt="Halaman Materi"
-                        style="max-width: 100%; height: auto; width: 400px;">
+                        style="max-width: 100%; height: auto; width: 700px;">
                 </div><br>
+                <h5>Keterangan:</h5>
                 <ol>
-                    <li><b>Sidebar:</b> Judul setiap sub bab materi. Silahkan klik materi yang ingin dipelajari.</b></li>
-                    <li>Tombol <b>"Petunjuk Pengerjaan":</b> berisi panduan bagaimana cara mengerjakan soal-soal aktivitas dalam media.</li>
-                    <li><b>"Informasi Nama User":</b> Jika diklik muncul fitur "Logout"</li>
-                    <li>Tombol <b>Sebelumnya:</b> Untuk berpindah dari halaman yang sedang dibuka ke halaman sebelumnya.</li>
-                    <li>Tombol <b>Selanjutnya:</b> Untuk berpindah dari halaman yang sedang dibuka ke halaman selanjutnya.</li>
-                    <li><b>Konten:</b> Berisi materi yang dibahas, sesuai dengan materi yang di klik pada sidebar oleh pengguna.</li>
+                    <li><b>Sidebar:</b> Berisi daftar judul setiap sub bab materi. Silahkan klik materi yang ingin dipelajari.</b></li>
+                    <li>Tombol <b>"Petunjuk Pengerjaan":</b> Berisi panduan bagaimana cara mengerjakan soal-soal aktivitas dalam media.</li>
+                    <li><b>"Informasi Nama User":</b> Jika di klik muncul fitur <b>"Logout"</b></li>
+                    <li>Tombol <b>Sebelumnya:</b> Berfungsi untuk berpindah dari halaman yang sedang dibuka ke halaman sebelumnya.</li>
+                    <li>Tombol <b>Selanjutnya:</b> Berfungsi untuk berpindah dari halaman yang sedang dibuka ke halaman selanjutnya.</li>
+                    <li><b>Konten:</b> Berisi materi yang dibahas, sesuai dengan materi yang dipilih pada sidebar oleh pengguna.</li>
                 </ol>
             </div>
         </div>
