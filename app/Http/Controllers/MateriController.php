@@ -13,7 +13,7 @@ class MateriController extends Controller
         ],
         [
             'title' => 'Konsep Pendekatan Pembelajaran Computational Thinking',
-            'pages' => ['Pengertian', 'Dekomposisi', 'Pengenalan Pola', 'Abstraksi', 'Algoritma']
+            'pages' => ['Pengertian', 'Empat Fondasi CT']
         ],
         [
             'title' => 'Contoh Penerapan Pendekatan Computational Thinking',
@@ -53,7 +53,7 @@ class MateriController extends Controller
             $data['btnSebelumnya'] = false;
         }
 
-        if ($bab == 0 || ($bab == 1 && $page == 5) || $bab == 2 || $bab == 3 || $bab == 4) {
+        if ($bab == 0 || ($bab == 1 && $page == 2) || $bab == 2 || $bab == 3 || $bab == 4) {
             $data['btnSelanjutnya']['type'] = 'bab';
             $data['btnSelanjutnya']['url'] = route('siswa.materi', ['bab' => $bab + 1, 'page' => 1]);
         } elseif ($page == $countBabPage) {

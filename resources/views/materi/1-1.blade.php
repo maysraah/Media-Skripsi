@@ -11,8 +11,18 @@
         <img style="width: 310px;" src="{{ asset('storage/img/marker2.png') }}">
     </p>
     <p class="text-justify" style="text-indent: 2em;">
-        <b><i>Computational Thinking</i> (CT) atau Berpikir Komputasional</b> adalah pendekatan sistematis dalam berpikir kritis dan pemecahan masalah dengan <b>merumuskan persoalan</b> serta menyusun strategi yang <b>efektif, efisien, dan optimal.</b>
-        CT menggunakan prinsip dan praktik ilmu komputer untuk menghasilkan solusi yang dapat dieksekusi oleh manusia maupun komputer. Pendekatan ini tidak hanya terbatas pada pemrograman, tetapi juga dapat diterapkan dalam berbagai bidang, terutama dalam dunia pendidikan, untuk membantu siswa mengembangkan keterampilan berpikir logis dan analitis.
+        Menurut (Liem et al., 2022) <i>Computational Thinking</i> (CT) adalah proses berpikir dalam merumuskan masalah serta menyusun strategi untuk menemukan solusi yang efektif, efisien, dan optimal dari suatu persoalan yang dapat dieksekusi oleh agen pemroses informasi, baik manusia maupun komputer.
+    </p>
+    <p class="text-justify" style="text-indent: 2em;">
+        Definisi lain dari CT dikemukakan oleh (Beecher, 2017). Ia menyatakan bahwa <i>Computational Thinking</i> adalah pendekatan pemecahan masalah yang melibatkan penggunaan serangkaian praktik dan prinsip dari ilmu komputer untuk merumuskan solusi yang dapat dilaksanakan dan dilakukan oleh komputer. Pendekatan ini bukan hanya untuk programmer, faktanya CT dapat diterapkan dalam berbagai bidang.
+    </p>
+    <p class="text-justify" style="text-indent: 2em;">
+        Selain dari dua definisi diatas, (Hunsaker, n.d.) menambahkan definisi dari <i>Computational Thinking</i>, yaitu <i>Computational Thinking</i> adalah kerangka kerja yang membantu dalam berpikir kritis dan memecahkan masalah. Pendekatan ini semakin populer di dunia pendidikan karena menawarkan cara efektif untuk mengajarkan keterampilan. 
+        Meskipun bukan satu-satunya metode, CT memungkinkan kita memahami masalah dengan cara yang dapat menghasilkan solusi otomatis atau semi-otomatis menggunakan teknologi komputer. Selain itu, CT juga menyediakan istilah yang seragam, banyak sumber belajar, serta komunitas guru yang aktif dalam membimbing siswa agar lebih terampil dalam menyelesaikan masalah.
+    </p>
+    <p class="text-justify" style="text-indent: 2em;">
+        Berdasarkan uraian diatas, dapat disimpulkan bahwa <b><i>Computational Thinking (CT)</i> atau Berpikir Komputasional</b> adalah pendekatan sistematis dalam berpikir kritis dan pemecahan masalah dengan <b>merumuskan persoalan</b> serta menyusun strategi yang <b>efektif, efisien, dan optimal</b>. CT menggunakan prinsip dan praktik ilmu komputer untuk menghasilkan solusi yang dapat dieksekusi oleh manusia maupun komputer.
+        Pendekatan ini tidak hanya terbatas pada pemrograman, tetapi juga dapat diterapkan dalam berbagai bidang, terutama dalam dunia pendidikan, untuk membantu siswa mengembangkan keterampilan berpikir logis dan analitis.
     </p><br>
 
     <p>

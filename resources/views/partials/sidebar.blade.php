@@ -149,7 +149,7 @@
                             </div>
                             atau,<br>Klik jawaban yang anda pilih hingga berubah warna menjadi biru.<br>
                             <div style="display: flex; justify-content: center; align-items: center;">
-                                <img style="width: 150px;" src="{{ asset('storage/img/pilgan-2.png') }}" alt="Soal Pilihan Ganda">
+                                <img style="width: 300px;" src="{{ asset('storage/img/pilgan-2.png') }}" alt="Soal Pilihan Ganda">
                             </div>
                         </li>
                         <li><b>Soal Isian:</b> Isilah kotak jawaban yang disediakan dengan jawaban anda.<br>
@@ -204,29 +204,9 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link" data-toggle="collapse" href="#ctDropdown2" role="button" aria-expanded="false" aria-controls="ctDropdown">
-                                    Empat Fondasi <i>Computational Thinking</i> <i class="fas fa-angle-down float-right"></i>
+                                <a href="{{ route('siswa.materi', ['bab' => 1, 'page' => 2]) }}" class="nav-link {{ request('bab') == 1 && request('page') == 2 ? 'active' : '' }}">
+                                    Empat Fondasi <i>Computational Thinking</i>
                                 </a>
-                                <div class="collapse" id="ctDropdown2">
-                                    <ul class="nav flex-column pl-3">
-                                        <li class="nav-item">
-                                            <a href="{{ route('siswa.materi', ['bab' => 1, 'page' => 2]) }}" class="nav-link {{ request('bab') == 1 && request('page') == 2 ? 'active' : '' }}">
-                                                Dekomposisi <i>(Decomposition)</i></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('siswa.materi', ['bab' => 1, 'page' => 3]) }}" class="nav-link {{ request('bab') == 1 && request('page') == 3 ? 'active' : '' }}">
-                                                Pengenalan Pola <i>(Pattern Recognition)</i></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('siswa.materi', ['bab' => 1, 'page' => 4]) }}" class="nav-link {{ request('bab') == 1 && request('page') == 4 ? 'active' : '' }}">
-                                                Abstraksi <i>(Abstraction)</i></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a href="{{ route('siswa.materi', ['bab' => 1, 'page' => 5]) }}" class="nav-link {{ request('bab') == 1 && request('page') == 5 ? 'active' : '' }}">
-                                                Algoritma <i>(Algorithm)</i></a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </li>
                         </ul>
                     </div>

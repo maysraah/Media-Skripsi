@@ -10,12 +10,6 @@
     <img style="width: 400px;" src="{{ asset('storage/img/marker20.png') }}">
 </div>
 
-<div style="border: 2px solid #011B78; border-radius: 8px; padding: 20px; margin: 20px auto;">
-<h5 style="color:#011B78">Tujuan Pembelajaran</h5>
-<p class="text-justify">
-    Melakukan penerapan langsung dengan media interaktif untuk memperdalam pemahaman algoritma pencarian <i>(searching)</i> dengan pendekatan <i>computational thinking</i>.</i></p>
-</div>
-
 {{-- Aktivitas Siswa 5 --}}
 <div style="border: 2px solid #011B78; padding: 20px; margin: 20px auto;">
     <div>

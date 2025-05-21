@@ -25,7 +25,7 @@
             @else
                 <p class="fs-6">Anda akan mengerjakan <strong>Evaluasi</strong></p>
                 <p class="fs-6">
-                    Waktu yang disediakan untuk menjawab adalah <strong>100 menit</strong>, 
+                    Waktu yang disediakan untuk menjawab adalah <strong>60 menit</strong>, 
                     Kriteria Ketuntasan Minimal (KKM) yang harus dicapai adalah <strong>70</strong>.
                 </p>
                 <p class="fs-6 mb-2">Berikut petunjuk pelaksanaannya:</p>

@@ -25,7 +25,7 @@
             @else
                 <p class="fs-6">Anda akan mengerjakan <strong>Kuis Pencarian Biner</strong></p>
                 <p class="fs-6">
-                    Waktu yang disediakan untuk menjawab adalah <strong>50 menit</strong>, 
+                    Waktu yang disediakan untuk menjawab adalah <strong>30 menit</strong>, 
                     Kriteria Ketuntasan Minimal (KKM) yang harus dicapai adalah <strong>70</strong>.
                 </p>
                 <p class="fs-6 mb-2">Berikut petunjuk pelaksanaannya:</p>

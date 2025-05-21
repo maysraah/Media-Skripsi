@@ -20,6 +20,16 @@
                 <!-- Form register di sebelah kanan -->
                 <div class="col-md-6">
                     <div class="form p-3 border rounded shadow">
+                        @if ($errors->any())
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         <form method="post" action="{{ route('register.store') }}">
                             @csrf
                             <div class="mb-3">
@@ -64,6 +74,7 @@
                                         <i class="bi bi-eye"></i>
                                     </button>
                                 </div>
+                                <p style="font-size: 12px">*Minimal 8 karakter campuran angka dan huruf</p>
                                 @error('passwordInput')
                                 <div class="invalid-feedback">{{ $message }}</div>
                                 @enderror

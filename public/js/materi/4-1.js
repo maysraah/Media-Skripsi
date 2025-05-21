@@ -127,60 +127,151 @@ function searchStep2() {
 const soalList = document.querySelectorAll(".soal");
 let currentIndexSoal = 0;
 
-// Sembunyikan semua soal terlebih dahulu
-soalList.forEach((soal, index) => {
-    soal.classList.remove("active");
-  });
-  
-// Tampilkan soal pertama
-soalList[0].classList.add("active");
+// Sembunyikan semua soal
+soalList.forEach((soal) => {
+  soal.classList.remove("active");
+});
 
-// Tambahkan event listener pada semua tombol jawaban
-document.querySelectorAll(".answer-btn").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const isCorrect = btn.getAttribute("data-benar") === "true";
-  
-      if (isCorrect) {
-        Swal.fire({
-          title: "Benar!",
-          text: "Jawaban kamu tepat! Kerja Bagus!",
-          icon: "success",
-          showConfirmButton: false,
-          timer: 1500
-        });
-  
-        // Tampilkan soal berikutnya setelah delay
-        setTimeout(() => {
-          if (currentIndexSoal + 1 < soalList.length) {
-            soalList[currentIndexSoal].classList.remove("active");
-            currentIndexSoal++;
-            soalList[currentIndexSoal].classList.add("active");
-            window.scrollTo({
-              top: soalList[currentIndexSoal].offsetTop - 20,
-              behavior: "smooth"
-            });
-          } else {
-            Swal.fire({
-              title: "Selesai!",
-              text: "Kamu sudah menyelesaikan semua soal! Kerja Bagus!",
-              icon: "success",
-              showConfirmButton: false,
-              timer: 2000
-            }).then(() => {
-                document.getElementById("section-2").style.display = "block";
-            });
-          }
-        }, 1500); // sama dengan timer Swal agar sinkron
-      } else {
-        Swal.fire({
-          title: "Salah!",
-          text: "Coba lagi ya!",
-          icon: "error",
-          confirmButtonText: "Coba Lagi"
-        });
+// Tampilkan soal pertama
+showSoal(currentIndexSoal);
+
+function showSoal(index) {
+  soalList.forEach((soal) => soal.classList.remove("active"));
+  soalList[index].classList.add("active");
+
+  const soalContainer = soalList[index];
+  const soalId = soalContainer.id;
+  const info = soalContainer.querySelector(".soal-info");
+  const prevBtn = soalContainer.querySelector(".prev-btn");
+  const nextBtn = soalContainer.querySelector(".next-btn");
+  const feedback = soalContainer.querySelector(".feedback");
+  const answerButtons = soalContainer.querySelectorAll(".answer-btn");
+
+  if (info) {
+    info.textContent = `Soal ke-${index + 1} dari ${soalList.length}`;
+  }
+
+  if (prevBtn) {
+    prevBtn.style.display = index === 0 ? "none" : "inline-block";
+  }
+
+  // Ambil jawaban tersimpan dari localStorage
+  const savedAnswer = localStorage.getItem(soalId);
+  if (savedAnswer) {
+    answerButtons.forEach((btn) => {
+      if (btn.textContent === savedAnswer) {
+        // Highlight jawaban tersimpan
+        btn.style.border = "2px solid #011B78";
+        btn.style.backgroundColor = "#e0edff";
+
+        const isCorrect = btn.getAttribute("data-benar") === "true";
+        feedback.style.display = "block";
+
+        if (isCorrect) {
+          const explanation = btn.getAttribute("data-feedback") || "Jawaban kamu benar!";
+          feedback.innerHTML = `
+            <div style="
+              background-color: #d4edda;
+              color: #155724;
+              border: 1px solid #c3e6cb;
+              padding: 10px;
+              border-radius: 5px;">
+              <strong>Benar!</strong> ${explanation}
+            </div>`;
+          nextBtn.disabled = false;
+          nextBtn.style.display = "inline-block";
+        } else {
+          feedback.innerHTML = `
+            <div style="
+              background-color: #f8d7da;
+              color: #721c24;
+              border: 1px solid #f5c6cb;
+              padding: 10px;
+              border-radius: 5px;">
+              <strong>Salah.</strong> Silakan coba lagi dan perhatikan posisi elemen dalam daftar.
+            </div>`;
+        }
       }
     });
+  }
+}
+
+document.querySelectorAll(".answer-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const soalContainer = btn.closest(".soal");
+    const soalId = soalContainer.id;
+    const isCorrect = btn.getAttribute("data-benar") === "true";
+    const feedback = soalContainer.querySelector(".feedback");
+    const lanjutBtn = soalContainer.querySelector(".next-btn");
+
+    // Simpan jawaban ke localStorage
+    localStorage.setItem(soalId, btn.textContent);
+
+    // Highlight tombol yang dipilih
+    // btn.style.border = "2px solid #011B78";
+    // btn.style.backgroundColor = "#e0edff";
+
+    feedback.style.display = "block";
+    if (isCorrect) {
+      const explanation = btn.getAttribute("data-feedback") || "Jawaban kamu benar!";
+      feedback.innerHTML = `
+        <div style="
+          background-color: #d4edda;
+          color: #155724;
+          border: 1px solid #c3e6cb;
+          padding: 10px;
+          border-radius: 5px;">
+          <strong>Benar!</strong> ${explanation}
+        </div>`;
+      lanjutBtn.disabled = false;
+      lanjutBtn.style.display = "inline-block";
+    } else {
+      feedback.innerHTML = `
+        <div style="
+          background-color: #f8d7da;
+          color: #721c24;
+          border: 1px solid #f5c6cb;
+          padding: 10px;
+          border-radius: 5px;">
+          <strong>Salah.</strong> Silakan coba lagi dan perhatikan posisi elemen dalam daftar.
+        </div>`;
+    }
   });
+});
+
+document.querySelectorAll(".prev-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (currentIndexSoal > 0) {
+      currentIndexSoal--;
+      showSoal(currentIndexSoal);
+      window.scrollTo({
+        top: soalList[currentIndexSoal].offsetTop - 20,
+        behavior: "smooth"
+      });
+    }
+  });
+});
+
+document.querySelectorAll(".next-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    if (currentIndexSoal + 1 < soalList.length) {
+      currentIndexSoal++;
+      showSoal(currentIndexSoal);
+      window.scrollTo({
+        top: soalList[currentIndexSoal].offsetTop - 20,
+        behavior: "smooth"
+      });
+    } else {
+      Swal.fire({
+        title: "Selesai!",
+        text: "Kamu sudah menyelesaikan semua soal! Kerja bagus!",
+        icon: "success"
+      }).then(() => {
+        document.getElementById("section-2").style.display = "block";
+      });
+    }
+  });
+});
 
 // Cek Jawaban Soal Motif Tikar Purun
 function checkAnswers() {

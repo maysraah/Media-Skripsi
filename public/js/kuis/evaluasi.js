@@ -32,7 +32,7 @@ const questions = [
       "Tidak dapat menemukan elemen yang sama",
       "Lambat untuk dataset yang besar",
       "Memerlukan indeks khusus untuk berfungsi",
-      "Tidak dapat digunakan pada array"] },
+      "Tidak dapat digunakan pada daftar"] },
 
 { question: "Kapan pencarian linear lebih efisien dibandingkan pencarian biner?", options: 
       ["Pada dataset yang sangat besar", 
@@ -95,14 +95,14 @@ const questions = [
       "Meningkatkan akurasi pencarian",
       "Menghindari pengecekan indeks batas",
       "Mempercepat waktu akses memori",
-      "Mengurangi jumlah elemen dalam array"] },
+      "Mengurangi jumlah elemen dalam daftar"] },
 
 { question: "Dalam pencarian beruntun dengan sentinel, di mana elemen sentinel biasanya diletakkan?", options: 
-      ["Di posisi pertama array", 
-      "Di posisi terakhir array",
+      ["Di posisi pertama daftar", 
+      "Di posisi terakhir daftar",
       "Di posisi setelah elemen terakhir",
-      "Di posisi tengah array",
-      "Di posisi acak dalam array"] },
+      "Di posisi tengah daftar",
+      "Di posisi acak dalam daftar"] },
 
 { question: "Jika kita menggunakan sentinel dalam pencarian, yang perlu dilakukan setelah menemukan sentinel adalah....", options: 
       ["Menghentikan pencarian", 
@@ -259,7 +259,7 @@ loadProgress();
 renderQuestion(currentQuestionIndex);
 renderNavigation();
 
-const TOTAL_TIME = 100 * 60; // 100 menit dalam detik
+const TOTAL_TIME = 60 * 60; // 60 menit dalam detik
 const TIMER_KEY = 'evaluasi_startTime';
 let timer;
 let timerElement = document.querySelector('.timer');

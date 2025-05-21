@@ -12,7 +12,7 @@
 
 <div style="border: 2px solid #011B78; border-radius: 8px; padding: 20px; margin: 20px auto;">
     <h5 style="color:#011B78">Tujuan Pembelajaran</h5>
-    <ol>
+    <ol type="A">
         <li>Memahami konsep dasar algoritma pencarian beruntun dengan sentinel.</li>
         <li>Menggunakan pendekatan <i>computational thinking</i> dalam memahami proses pencarian data.</li>
         <li>Mengimplementasikan pencarian beruntun dengan sentinel dalam memecahkan persoalan pencarian.</li>

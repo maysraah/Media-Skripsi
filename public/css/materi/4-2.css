@@ -54,15 +54,59 @@ li {
 }
 
 .soal {
-    display: none;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .soal.active {
-    display: block;
-  }
+  display: none;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+
+.soal.active {
+  display: block;
+}
+
+.next-btn {
+  background-color: #011B78;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.prev-btn {
+  background-color: #b6baca;
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.next-btn:hover {
+  background-color: #0225a3;
+  transform: scale(1.05);
+}
+
+.prev-btn:hover {
+  background-color: #dcdcdd;
+  transform: scale(1.05);
+}
+
+.next-btn:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+}
   
   .grid {
     display: flex;

@@ -12,7 +12,7 @@
 
 <div style="border: 2px solid #011B78; border-radius: 8px; padding: 20px; margin: 20px auto;">
     <h5 style="color:#011B78">Tujuan Pembelajaran</h5>
-    <ol>
+    <ol type="A">
         <li>Memahami konsep dasar algoritma pencarian linear.</li>
         <li>Menggunakan pendekatan <i>computational thinking</i> dalam memahami proses pencarian data.</li>
         <li>Mengimplementasikan pencarian linear dalam memecahkan persoalan pencarian.</li>
@@ -20,7 +20,7 @@
 </div>
 
 <p class="text-justify" style="text-indent: 2em;">
-    <b>Pencarian Linear</b> adalah algoritma pencarian yang bekerja dengan memeriksa setiap elemen dalam daftar <b>satu per satu</b> dari awal hingga elemen yang dicari ditemukan.
+    <b>Pencarian Linear</b> adalah algoritma pencarian yang bekerja dengan memeriksa setiap elemen dalam sekumpulan data atau daftar <b>satu per satu</b> dari awal hingga elemen yang dicari ditemukan.
     Pada setiap pengulangan, data pada indeks ke-i <b>dibandingkan</b> dengan elemen yang dicari. Jika elemen tersebut tidak ditemukan, pencarian akan terus berjalan hingga mencapai akhir daftar.
     Algoritma ini dianggap sebagai salah satu metode pencarian yang paling sederhana.
 </p>
@@ -30,7 +30,7 @@
     <img style="width: 180px;" src="{{ asset('storage/img/marker9.png') }}">
 </div>
 
-<p>Perhatikan daftar angka berikut.</p>
+<p>Perhatikan barisan angka berikut.</p>
 <div>
     <img style="width: 350px;" src="{{ asset('storage/img/ilustrasi-linear-1.png') }}" alt="Ilustrasi Cara Kerja Algoritma Linear Search">
 </div>
@@ -39,18 +39,18 @@
 </p>
 
 <ol>
-    <li>Mulai dari elemen pertama dalam daftar.<br>
+    <li>Mulai dari elemen pertama dalam barisan.<br>
         <img style="width: 350px;" src="{{ asset('storage/img/ilustrasi-linear-2.png') }}" alt="Ilustrasi Cara Kerja Algoritma Linear Search">
     </li>
     <li>Bandingkan elemen saat ini dengan elemen yang dicari.</li>
     <li>Jika cocok, berhenti dan kembalikan hasilnya.</li>
-    <li>Ulangi langkah 2-4 hingga elemen ditemukan atau daftar habis diperiksa.<br>
+    <li>Ulangi langkah 2-4 hingga elemen ditemukan atau barisan angka habis diperiksa.<br>
         <img style="width: 350px;" src="{{ asset('storage/img/ilustrasi-linear-3.png') }}" alt="Ilustrasi Cara Kerja Algoritma Linear Search"><br><br>
         <img style="width: 350px;" src="{{ asset('storage/img/ilustrasi-linear-4.png') }}" alt="Ilustrasi Cara Kerja Algoritma Linear Search"><br><br>
     </li>
 </ol>
 
-<p class="text-justify">Dengan demikian, di dapatkan pencarian angka 7 dengan pencarian linear ditemukan pada <b>indeks ke-3</b> dalam daftar.</p><br>
+<p class="text-justify">Dengan demikian, di dapatkan pencarian angka 7 dengan pencarian linear ditemukan pada <b>indeks ke-3</b> dalam barisan.</p><br>
 
 {{-- Pengenalan Pola --}}
 <div>
@@ -60,9 +60,9 @@
 <p class="text-justify">Kita mengenali pola berikut dalam pencarian linear:</p>
 <ul>
     <li>Pencarian dilakukan secara berurutan dari awal hingga akhir.</li>
-    <li>Jika elemen yang dicari berada di awal daftar, pencarian lebih cepat.</li>
-    <li>Jika elemen yang dicari berada di akhir daftar atau tidak ada, pencarian akan lebih lama.</li>
-    <li>Tidak memerlukan daftar yang terurut, tetapi lebih lambat dibandingkan pencarian biner pada data terurut.</li>
+    <li>Jika elemen yang dicari berada di awal daftar/barisan, pencarian lebih cepat.</li>
+    <li>Jika elemen yang dicari berada di akhir daftar/barisan atau tidak ada, pencarian akan lebih lama.</li>
+    <li>Tidak memerlukan data yang terurut, tetapi lebih lambat dibandingkan pencarian biner pada data terurut.</li>
 </ul>
 
 <div style="border: 2px solid #011B78; padding: 20px; margin: 20px auto;">
@@ -83,7 +83,7 @@
     <div class="pola-wrapper">
         <p class="text-justify"> 
             Pertama, kita akan melakukan pencarian dengan algoritma pencarian linear <b>hanya untuk mengetahui apakah data tersebut ada dalam sekumpulan data atau tidak</b>. Kemudian, kita akan menunjukkan <b>dimana posisi data</b> tersebut dalam sekumpulan data.<br><br>
-            Perhatikan daftar angka berikut. Cobalah masukkan angka <b>“17”</b> sebagai target pada kolom masukan.
+            Perhatikan barisan angka berikut. Cobalah masukkan angka <b>“17”</b> sebagai target pada kolom masukan.
         </p><br><br><br>
             <div id="list-container" class="d-flex gap-2" style="position: relative;">
                 <div id="search-box" class="search-box">?</div>
@@ -112,7 +112,7 @@
     <div class="pola-wrapper">
         <p class="text-justify"> 
             Kedua, kita akan melakukan pencarian dengan algoritma pencarian linear untuk mencari suatu data kemudian <b>menampilkan semua posisi dan frekuensi kemunculannnya (jika kemunculan data lebih dari satu kali dalam sekumpulan data)</b>.<br><br>
-            Perhatikan daftar angka berikut. Cobalah masukkan angka <b>“17”</b> sebagai target pada kolom masukan.
+            Perhatikan barisan angka berikut. Cobalah masukkan angka <b>“17”</b> sebagai target pada kolom masukan.
         </p><br><br><br>
             <div id="list-container2" class="d-flex gap-2" style="position: relative;">
                 <div id="search-box2" class="search-box">?</div>
@@ -142,7 +142,7 @@
 <p class="text-justify" style="text-indent: 2em;">
     Setelah mencoba simulasi visualisasi di atas, kalian diharapkan mampu memahami bagaimana pencarian linear bekerja.
     Dengan pencarian linear, setiap elemen diperiksa satu per satu hingga elemen yang dicari ditemukan atau seluruh elemen telah diperiksa.
-    Tetapi, pencarian linear kurang efisien pada daftar besar karena memeriksa elemen secara berurutan, sehingga waktu pencarian akan lebih lama.
+    Tetapi, pencarian linear kurang efisien pada data besar karena memeriksa elemen secara berurutan, sehingga waktu pencarian akan lebih lama.
 </p><br>
 
 {{-- Abstraksi --}}
@@ -164,7 +164,7 @@
 
 <p class="text-justify">Berikut adalah langkah-langkah algoritma pencarian linear:</p>
 <ol>
-    <li>Ambil daftar data (misalnya daftar nama atau angka).</li>
+    <li>Ambil sekumpulan data (misalnya daftar nama atau angka).</li>
     <li>Tentukan elemen yang dicari.</li>
     <li>Periksa elemen satu per satu:
         <ul>
@@ -172,42 +172,43 @@
             <li>Jika tidak, lanjutkan ke elemen berikutnya.</li>
         </ul>
     </li>
-    <li>Jika daftar habis tanpa menemukan elemen, beri tahu bahwa elemen tidak ditemukan.</li>
+    <li>Jika data habis diperiksa tanpa menemukan elemen, beri tahu bahwa elemen tidak ditemukan.</li>
 </ol><br>
-
 
 {{-- Aktivitas Siswa 1 --}}
 <div style="border: 2px solid #011B78; padding: 20px; margin: 20px auto;">
     <div>
         <img style="width: 170px;" src="{{ asset('storage/img/marker15.png') }}">
-    </div>
+    </div><br>
 
     {{-- Soal 1 --}}
     <div class="soal" id="soal-1">
-        <strong>Soal 1:</strong>
-        <p>Perhatikan daftar angka berikut ini:</p>
+        <div class="soal-info" style="margin-bottom: 10px; font-weight: bold;"></div>
+        <p>Perhatikan barisan angka berikut ini:</p>
         <div class="grid">
-          <div class="kotak">13</div>
-          <div class="kotak">3</div>
-          <div class="kotak">7</div>
-          <div class="kotak">9</div>
-          <div class="kotak">11</div>
-          <div class="kotak">5</div>
-          <div class="kotak">8</div>
-          <div class="kotak">10</div>
+            <div class="kotak">13</div>
+            <div class="kotak">3</div>
+            <div class="kotak">7</div>
+            <div class="kotak">9</div>
+            <div class="kotak">11</div>
+            <div class="kotak">5</div>
+            <div class="kotak">8</div>
+            <div class="kotak">10</div>
         </div>
-        <p>Dari daftar angka di atas, berapa langkah yang dibutuhkan untuk menemukan angka <b>11</b> dengan algoritma pencarian linear?</p>
+        <p>Berapa langkah yang dibutuhkan untuk menemukan angka <b>11</b> dengan algoritma pencarian linear?</p>
         <div class="answers">
-          <button class="answer-btn" data-benar="false">3</button>
-          <button class="answer-btn" data-benar="true">5</button>
-          <button class="answer-btn" data-benar="false">7</button>
+            <button class="answer-btn" data-benar="false">3 langkah</button>
+            <button class="answer-btn" data-benar="true" data-feedback="Karena 11 berada di posisi ke-5, maka dibutuhkan 5 langkah untuk menemukannya.">5 langkah</button>
+            <button class="answer-btn" data-benar="false">7 langkah</button>
         </div>
+        <div class="feedback" style="display: none; margin-top: 15px;"></div>
+        <button class="next-btn" disabled>Soal Berikutnya</button>
     </div>
 
     {{-- Soal 2 --}}
     <div class="soal" id="soal-2">
-        <strong>Soal 2:</strong>
-        <p>Perhatikan daftar angka berikut ini:</p>
+        <div class="soal-info" style="margin-bottom: 10px; font-weight: bold;"></div>
+        <p>Perhatikan barisan angka berikut ini:</p>
         <div class="grid">
           <div class="kotak">5</div>
           <div class="kotak">10</div>
@@ -216,18 +217,21 @@
           <div class="kotak">25</div>
           <div class="kotak">30</div>
         </div>
-        <p>Dari daftar angka di atas, berapa langkah yang dibutuhkan untuk menemukan angka <b>30</b> dengan algoritma pencarian linear?</p>
+        <p>Dari barisan angka di atas, berapa langkah yang dibutuhkan untuk menemukan angka <b>30</b> dengan algoritma pencarian linear?</p>
         <div class="answers">
-          <button class="answer-btn" data-benar="false">4</button>
-          <button class="answer-btn" data-benar="false">5</button>
-          <button class="answer-btn" data-benar="true">6</button>
+          <button class="answer-btn" data-benar="false">4 langkah</button>
+          <button class="answer-btn" data-benar="false">5 langkah</button>
+          <button class="answer-btn" data-benar="true" data-feedback="Angka 30 berada di posisi ke-6, jadi pencarian linear membutuhkan 6 langkah untuk menemukannya.">6 langkah</button>
         </div>
+        <div class="feedback" style="display: none; margin-top: 15px;"></div>
+        <button class="prev-btn" style="margin-top: 10px; display: none;">Soal Sebelumnya</button>
+        <button class="next-btn" disabled>Soal Berikutnya</button>
     </div>
 
     {{-- Soal 3 --}}
     <div class="soal" id="soal-3">
-        <strong>Soal 3:</strong>
-        <p>Perhatikan daftar nilai berikut ini:</p>
+        <div class="soal-info" style="margin-bottom: 10px; font-weight: bold;"></div>
+        <p>Perhatikan barisan nilai berikut ini:</p>
         <div class="grid">
           <div class="kotak">70</div>
           <div class="kotak">76</div>
@@ -240,18 +244,21 @@
           <div class="kotak">80</div>
           <div class="kotak">72</div>
         </div>
-        <p>Dari daftar nilai di atas, berapa langkah yang dibutuhkan untuk menemukan nilai <b>72 yang pertama kali muncul dalam daftar</b> dengan algoritma pencarian linear?</p>
+        <p>Dari barisan nilai di atas, berapa langkah yang dibutuhkan untuk menemukan nilai <b>72 yang pertama kali muncul dalam barisan</b> dengan algoritma pencarian linear?</p>
         <div class="answers">
-          <button class="answer-btn" data-benar="true">3</button>
-          <button class="answer-btn" data-benar="false">7</button>
-          <button class="answer-btn" data-benar="false">10</button>
+          <button class="answer-btn" data-benar="true" data-feedback="Angka 72 yang pertama kali muncul berada di posisi ke-3, jadi pencarian linear membutuhkan 3 langkah untuk menemukannya.">3 langkah</button>
+          <button class="answer-btn" data-benar="false">7 langkah</button>
+          <button class="answer-btn" data-benar="false">10 langkah</button>
         </div>
+        <div class="feedback" style="display: none; margin-top: 15px;"></div>
+        <button class="prev-btn" style="margin-top: 10px; display: none;">Soal Sebelumnya</button>
+        <button class="next-btn" disabled>Soal Berikutnya</button>
     </div>
 
     {{-- Soal 4 --}}
     <div class="soal" id="soal-4">
-        <strong>Soal 4:</strong>
-        <p>Perhatikan daftar nilai berikut ini:</p>
+        <div class="soal-info" style="margin-bottom: 10px; font-weight: bold;"></div>
+        <p>Perhatikan barisan nilai berikut ini:</p>
         <div class="grid">
           <div class="kotak">70</div>
           <div class="kotak">76</div>
@@ -264,18 +271,21 @@
           <div class="kotak">80</div>
           <div class="kotak">72</div>
         </div>
-        <p>Dari daftar nilai di atas, tunjukkan di indeks mana saja nilai <b>72</b> ditemukan dalam daftar?</p>
+        <p>Dari barisan nilai di atas, tunjukkan di indeks mana saja nilai <b>72</b> ditemukan dalam barisan?</p>
         <div class="answers">
           <button class="answer-btn" data-benar="false">3, 6, 9</button>
-          <button class="answer-btn" data-benar="true">3, 7, 10</button>
+          <button class="answer-btn" data-benar="true" data-feedback="Angka 72 muncul sebanyak 3 kali dalam barisan dan berada di indeks ke 3, 7 dan 10">3, 7, 10</button>
           <button class="answer-btn" data-benar="false">3, 5, 9</button>
         </div>
+        <div class="feedback" style="display: none; margin-top: 15px;"></div>
+        <button class="prev-btn" style="margin-top: 10px; display: none;">Soal Sebelumnya</button>
+        <button class="next-btn" disabled>Soal Berikutnya</button>
     </div>
 
     {{-- Soal 5 --}}
     <div class="soal" id="soal-5">
-        <strong>Soal 5:</strong>
-        <p>Perhatikan daftar angka berikut ini:</p>
+        <div class="soal-info" style="margin-bottom: 10px; font-weight: bold;"></div>
+        <p>Perhatikan barisan angka berikut ini:</p>
         <div class="grid">
           <div class="kotak">5</div>
           <div class="kotak">7</div>
@@ -284,12 +294,15 @@
           <div class="kotak">21</div>
           <div class="kotak">23</div>
         </div>
-        <p>Dari daftar angka di atas, apakah angka <b>25</b> ditemukan dalam daftar? Berapa banyak langkah yang dibutuhkan untuk menemukannya dengan algoritma pencarian linear?</p>
+        <p>Dari barisan angka di atas, apakah angka <b>25</b> ditemukan dalam barisan? Berapa banyak langkah yang dibutuhkan untuk menemukannya dengan algoritma pencarian linear?</p>
         <div class="answers">
           <button class="answer-btn" data-benar="false">Ditemukan setelah 6 langkah</button>
           <button class="answer-btn" data-benar="false">Ditemukan setelah 7 langkah</button>
-          <button class="answer-btn" data-benar="true">Angka tidak ditemukan</button>
+          <button class="answer-btn" data-benar="true" data-feedback="Angka 25 tidak ditemukan dalam barisan angka.">Angka tidak ditemukan</button>
         </div>
+        <div class="feedback" style="display: none; margin-top: 15px;"></div>
+        <button class="prev-btn" style="margin-top: 10px; display: none;">Soal Sebelumnya</button>
+        <button class="next-btn" disabled>Soal Berikutnya</button>
     </div>
 </div>
 
