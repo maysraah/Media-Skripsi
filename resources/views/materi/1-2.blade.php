@@ -39,15 +39,15 @@
             <div class="row g-4 mt-3">
             <div class="col-md-6">
                 <div class="border p-3 bg-white rounded">
-                <h5>Komponen Aktivitas</h5>
-                <div id="activity-list">
-                    <div class="drag-dekom" draggable="true" data-id="A">Menentukan bahwa buku berkaitan dengan topik Kimia</div>
-                    <div class="drag-dekom" draggable="true" data-id="B">Menemukan kode DDC untuk Kimia (contoh: 540)</div>
-                    <div class="drag-dekom" draggable="true" data-id="C">Mencari rak perpustakaan yang sesuai dengan kode DDC 540</div>
-                    <div class="drag-dekom" draggable="true" data-id="D">Menelusuri buku berdasarkan urutan nama pengarang atau judul</div>
-                    <div class="drag-dekom" draggable="true" data-id="E">Menggunakan peta perpustakaan untuk mengetahui letak rak 500</div>
-                    <div class="drag-dekom" draggable="true" data-id="F">Mengecek nama pengarang pada punggung buku untuk memastikan kecocokan judul</div>
-                </div>
+                    <h5>Komponen Aktivitas</h5>
+                    <div id="activity-list">
+                        <div class="drag-dekom" draggable="true" data-id="A">Menentukan bahwa buku berkaitan dengan topik Kimia</div>
+                        <div class="drag-dekom" draggable="true" data-id="B">Menemukan kode DDC untuk Kimia (contoh: 540)</div>
+                        <div class="drag-dekom" draggable="true" data-id="C">Mencari rak perpustakaan yang sesuai dengan kode DDC 540</div>
+                        <div class="drag-dekom" draggable="true" data-id="D">Menelusuri buku berdasarkan urutan nama pengarang atau judul</div>
+                        <div class="drag-dekom" draggable="true" data-id="E">Menggunakan peta perpustakaan untuk mengetahui letak rak 500</div>
+                        <div class="drag-dekom" draggable="true" data-id="F">Mengecek nama pengarang pada punggung buku untuk memastikan kecocokan judul</div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6">
