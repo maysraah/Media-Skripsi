@@ -1,108 +1,74 @@
-// Dekomposisi
-const komponenData = [
-      { text: 'Melihat denah perpustakaan', id: 'lokasi' },
-      { text: 'Mengidentifikasi pintu masuk terdekat', id: 'lokasi' },
-      { text: 'Menentukan jenis buku yang dicari', id: 'kategori' },
-      { text: 'Mengklasifikasikan buku berdasarkan subjek', id: 'kategori' },
-      { text: 'Mencari rak bertanda SAINS', id: 'telusur' },
-      { text: 'Menelusuri setiap baris rak', id: 'telusur' },
-      { text: 'Mencatat call number buku', id: 'informasi' },
-      { text: 'Membaca sinopsis buku', id: 'informasi' },
-      { text: 'Memastikan kesesuaian judul buku', id: 'informasi' },
-    ];
+// DEKOMPOSISI
+const correctAnswers = {
+  Topik: ["A"],
+  DDC: ["B"],
+  Lokasi: ["C", "E"],
+  Rak: ["D", "F"]
+};
 
-    let draggedCard = null;
+const dekomItems = document.querySelectorAll('.drag-dekom');
+const dekomZones = document.querySelectorAll('.drop-dekom');
 
-    function renderCards() {
-      const container = document.getElementById('card-container');
-      container.innerHTML = '';
-      komponenData.forEach(({ text, id }) => {
-        const card = document.createElement('div');
-        card.className = 'card p-2 draggable';
-        card.textContent = text;
-        card.setAttribute('draggable', true);
-        card.dataset.id = id;
+// Drag events Dekomposisi
 
-        card.addEventListener('dragstart', () => {
-          draggedCard = card;
-          card.classList.add('dragging');
-        });
+dekomItems.forEach(item => {
+  item.addEventListener('dragstart', e => {
+    e.dataTransfer.setData('text/plain', item.dataset.id);
+  });
+});
 
-        card.addEventListener('dragend', () => {
-          draggedCard = null;
-          card.classList.remove('dragging');
-        });
+dekomZones.forEach(zone => {
+  zone.addEventListener('dragover', e => e.preventDefault());
+  zone.addEventListener('drop', e => {
+    e.preventDefault();
+    const id = e.dataTransfer.getData('text/plain');
+    const dragged = document.querySelector(`.drag-dekom[data-id="${id}"]`);
+    if (dragged) zone.appendChild(dragged);
+  });
+});
 
-        container.appendChild(card);
-      });
-    }
-
-    function resetJawaban() {
-      document.querySelectorAll('.dropzone').forEach(zone => zone.innerHTML = '<strong>' + zone.querySelector('strong').textContent + '</strong>');
-      renderCards();
-    }
-
-    function cekJawaban() {
-      const kunci = {
-        lokasi: ['lokasi', 'lokasi'],
-        kategori: ['kategori', 'kategori'],
-        telusur: ['telusur', 'telusur'],
-        informasi: ['informasi', 'informasi', 'informasi']
-      };
-
-      let benar = true;
-
-      for (const [kategori, ids] of Object.entries(kunci)) {
-        const zona = document.querySelector(`.dropzone[data-category='${kategori}']`);
-        const items = [...zona.querySelectorAll('.card')];
-        const itemIDs = items.map(item => item.dataset.id);
-        const cek = ids.every((id, index) => itemIDs[index] === id);
-        if (!cek || items.length !== ids.length) {
-          benar = false;
-          break;
-        }
-      }
-
-      if (benar) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Benar!',
-          text: 'Semua komponen sudah ditempatkan dengan tepat.'
-        });
-        document.getElementById("resultDecomposition").style.display = "block";
-        document.getElementById("pengenalan-pola").style.display = "block";
-      } else {
-        Swal.fire({
-          icon: 'error',
-          title: 'Oops...',
-          text: 'Beberapa komponen belum pada tempat yang benar.'
-        });
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-      renderCards();
-      document.querySelectorAll('.dropzone, #card-container').forEach(zone => {
-        zone.addEventListener('dragover', e => e.preventDefault());
-        zone.addEventListener('drop', () => {
-          if (draggedCard) zone.appendChild(draggedCard);
-        });
-      });
+function cekJawaban() {
+  let result = [];
+  let benarSemua = true;
+  dekomZones.forEach(zone => {
+    const group = zone.dataset.group;
+    const droppedItems = zone.querySelectorAll('.drag-dekom');
+    let correct = 0;
+    droppedItems.forEach(item => {
+      if (correctAnswers[group].includes(item.dataset.id)) correct++;
     });
+    const total = correctAnswers[group].length;
+    if (correct !== total) benarSemua = false;
+    result.push(`${group}: ${correct}/${total} benar.`);
+  });
+  Swal.fire({
+    title: benarSemua ? '✅ Jawaban Benar!' : '⚠️ Coba Lagi!',
+    html: result.join('<br>'),
+    icon: benarSemua ? 'success' : 'warning'
+  });
+}
+
+function resetJawaban() {
+  const activityList = document.getElementById('activity-list');
+  const dekomItems = document.querySelectorAll('#dekomposisi-area .drag-dekom');
+  dekomItems.forEach(item => activityList.appendChild(item));
+}
+
+function showInfo() {
+  alert("📘 Info Kode DDC:\n\n000 – Karya Umum\n100 – Filsafat\n200 – Agama\n300 – Ilmu Sosial\n400 – Bahasa\n500 – Ilmu Pengetahuan Alam\n    510 – Matematika\n    540 – Kimia\n    550 – Ilmu Bumi\n600 – Teknologi\n700 – Seni dan Rekreasi\n800 – Sastra\n900 – Sejarah dan Geografi");
+}
 
 // Pengenalan Pola
 function checkPattern() {
-  const answer = document.getElementById('patternSelect').value;
-  if (!answer) {
+  const jawaban = document.getElementById("polaJawaban").value;
+  if (!jawaban) {
     Swal.fire('Pilih jawaban!', 'Kamu harus memilih salah satu lokasi.', 'warning');
     return;
   }
 
-  localStorage.setItem('patternAnswer', answer);
-
-  if (answer === "rak bagian kiri") {
-    Swal.fire('Benar!', 'Kamu berhasil mengenali polanya! 📚 Buku Rahasia Sains Alam berada di Rak Sains Bagian Kiri', 'success');
-    document.getElementById("abstraksi").style.display = "block";
+  if (jawaban === "540") {
+    Swal.fire('Benar!', 'Kamu berhasil mengenali polanya! 📚 Buku "Kimia Dasar" berada di Rak 540 Bagian Kiri.', 'success');
+    // document.getElementById("abstraksi").style.display = "block";
   } else {
     Swal.fire('Kurang tepat!', 'Coba amati lagi pola dari judul dan lokasi rak.', 'error');
   }
@@ -110,106 +76,58 @@ function checkPattern() {
 
 // Abstraksi
 function checkAbstraction() {
-  const checks = document.querySelectorAll('#ab1, #ab2, #ab3, #ab4, #ab5');
-  const selected = Array.from(checks).filter(c => c.checked).map(c => c.value);
-
-  localStorage.setItem('abstractionAnswer', JSON.stringify(selected));
-
-  const correct = ['kategori', 'kode katalog', 'judul'];
-  const isCorrect = selected.length === correct.length && correct.every(item => selected.includes(item));
-
-  if (isCorrect) {
-    Swal.fire('Tepat!', 'Kamu hanya fokus pada informasi yang relevan untuk mencari buku Rahasia Sains Alam!', 'success');
-    document.getElementById("algoritma").style.display = "block";
+  const benar = ["Kategori", "Kode Katalog", "Judul Buku"];
+  const dipilih = [];
+  document.querySelectorAll('input[type=checkbox]:checked').forEach(cb => dipilih.push(cb.value));
+  const salah = dipilih.filter(d => !benar.includes(d)).length;
+  const kurang = benar.filter(d => !dipilih.includes(d)).length;
+  if (salah === 0 && kurang === 0) {
+    Swal.fire('Tepat!', 'Kamu hanya fokus pada informasi yang relevan untuk mencari buku Kimia Dasar karya Hardjono Sastrohamidjojo!', 'success');
+    // document.getElementById("algoritma").style.display = "block";
   } else {
     Swal.fire('Oops!', 'Beberapa informasi tidak perlu kamu pilih. Coba lagi!', 'error');
   }
 }
 
-// Algoritma
-const algoCorrect = [
-  "Temukan bagian Sains di peta perpustakaan",
-  "Cari rak bertanda “SAINS”",
-  "Telusuri bagian abjad R di rak",
-  "Periksa setiap judul sampai menemukan buku"
+// ALGORITMA
+const correctSteps = [
+  'Temukan bagian SAINS di peta perpustakaan',
+  'Cari rak bertanda "540"',
+  'Telusuri judul sampai menemukan buku "Kimia Dasar" karya Hardjono Sastrohamidjojo'
 ];
 
-function enableDragEvents(container) {
-  container.querySelectorAll('.draggable').forEach(item => {
-    item.addEventListener('dragstart', e => {
-      e.dataTransfer.setData('text/plain', e.target.innerText);
-    });
-  });
+function allowDropAlgo(ev) {
+  ev.preventDefault();
 }
 
-enableDragEvents(document);
-
-document.getElementById('algo-dropzone').addEventListener('dragover', e => {
-  e.preventDefault();
-});
-
-document.getElementById('algo-dropzone').addEventListener('drop', e => {
-  e.preventDefault();
-  const text = e.dataTransfer.getData('text/plain');
-  const newItem = document.createElement('li');
-  newItem.className = 'list-group-item draggable';
-  newItem.innerText = text;
-  document.getElementById('algo-dropzone').appendChild(newItem);
-  removeAlgoItem(text);
-  enableDragEvents(document.getElementById('algo-dropzone'));
-  saveAlgoProgress();
-});
-
-function removeAlgoItem(text) {
-  const items = document.querySelectorAll('#algo-choices .list-group-item');
-  items.forEach(item => {
-    if (item.innerText === text) item.remove();
-  });
+function dragAlgo(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
 }
 
-function checkAlgorithm() {
-  const answers = Array.from(document.querySelectorAll('#algo-dropzone .list-group-item'))
-    .map(el => el.innerText.trim());
-
-  localStorage.setItem('algorithmAnswer', JSON.stringify(answers));
-
-  const isCorrect = answers.length === algoCorrect.length &&
-                    answers.every((val, idx) => val === algoCorrect[idx]);
-
-  if (isCorrect) {
-    Swal.fire('Mantap!', 'Algoritmamu tersusun rapi dan efisien untuk mencari buku Rahasia Sains Alam! 🔍📘', 'success');
-  } else {
-    Swal.fire('Belum tepat!', 'Algoritma kamu perlu ditata ulang.', 'error');
+function dropAlgo(ev) {
+  ev.preventDefault();
+  const data = ev.dataTransfer.getData("text");
+  const dragged = document.getElementById(data);
+  const dropzone = ev.currentTarget;
+  if (dragged && dropzone.classList.contains("drop-algo")) {
+    dropzone.appendChild(dragged);
   }
 }
 
-function saveAlgoProgress() {
-  const answers = Array.from(document.querySelectorAll('#algo-dropzone .list-group-item'))
-    .map(el => el.innerText);
-  localStorage.setItem('algorithmAnswer', JSON.stringify(answers));
+function checkAlgorithm() {
+  const dropItems = document.querySelectorAll("#algo-dropzone .drag-algo");
+  const userSteps = Array.from(dropItems).map(item => item.textContent.trim());
+  const isCorrect = JSON.stringify(userSteps) === JSON.stringify(correctSteps);
+  Swal.fire({
+    icon: isCorrect ? "success" : "error",
+    title: isCorrect ? "✅ Urutan Benar!" : "❌ Urutan Salah",
+    text: isCorrect ? "Langkah-langkah sudah benar!" : "Coba cek kembali urutan langkahmu ya."
+  });
 }
 
 function resetAlgorithm() {
-  document.getElementById('algo-dropzone').innerHTML = '';
-  localStorage.removeItem('algorithmAnswer');
-
-  // Reset ulang pilihan yang bisa di-drag
-  const choices = [
-    "Temukan bagian Sains di peta perpustakaan",
-    "Periksa setiap judul sampai menemukan buku",
-    "Cari rak bertanda “SAINS”",
-    "Telusuri bagian abjad R di rak"
-  ];
-
-  const choiceContainer = document.getElementById('algo-choices');
-  choiceContainer.innerHTML = '';
-  choices.forEach(text => {
-    const li = document.createElement('li');
-    li.className = 'list-group-item draggable';
-    li.setAttribute('draggable', 'true');
-    li.innerText = text;
-    choiceContainer.appendChild(li);
-  });
-
-  enableDragEvents(choiceContainer);
+  const dropzone = document.getElementById("algo-dropzone");
+  const source = document.getElementById("algo-source");
+  const draggedItems = dropzone.querySelectorAll(".drag-algo");
+  draggedItems.forEach(item => source.appendChild(item));
 }

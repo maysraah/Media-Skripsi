@@ -4,13 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Informasi Media</title>
+    <title>Informasi Media - ThinkToSearch</title>
     <link rel="icon" type="image/png" href="{{ asset('storage/img/logo.png') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, sans-serif;
             font-size: var(--base-font-size);
+        }
+
+        #nama_media {
+            background: linear-gradient(to right, #011B78, #338feb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
         
         .btn-nav:hover {
@@ -27,8 +33,7 @@
     <!-- Navigasi Lengket -->
     <nav class="navbar navbar-expand-lg bg-light sticky-top shadow-sm">
         <div class="container-fluid">
-            <h4 style="color: #6f727a;">Think<span style="color: #011B78;">Search</span></h4>
-            {{-- <a class="navbar-brand" href="#">ThinkSearch</a> --}}
+            <h4 id="nama_media">Think to Search</h4>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -37,6 +42,19 @@
                     <a class="nav-link active me-3 btn-nav" aria-current="page" href="{{ route('home') }}">Beranda</a>
                     <a class="nav-link active me-3 btn-nav" aria-current="page" href="{{ route('petunjuk') }}">Petunjuk Penggunaan</a>
                     <a class="nav-link active me-3 btn-nav" aria-current="page" href="{{ route('tentang') }}">Tentang</a>
+                    @if (Auth::check() && Auth::user()->role === 'guru')
+                        <a href="{{ route('dashboard-guru') }}" class="nav-link active me-3 btn-nav" aria-current="page">
+                            Halaman Guru
+                        </a>
+                    @elseif (Auth::check() && Auth::user()->role === 'siswa')
+                        <a class="nav-link active me-3 btn-nav" aria-current="page" style="pointer-events: none; opacity: 0.6;" aria-disabled="true">
+                            Halaman Guru
+                        </a>
+                    @else
+                        <a href="{{ route('login') }}" class="nav-link active me-3 btn-nav" aria-current="page">
+                            Halaman Guru
+                        </a>
+                    @endif
                 </div>
             </div>
             <div class="text-end d-flex align-items-center">
@@ -44,7 +62,7 @@
                     <div class="user me-3">
                         Halo, {{ Auth::user()->name }}
                     </div>
-                    <a href="{{ route('login.logout') }}" class="btn btn-danger">Logout</a>
+                    <a href="{{ route('login.logout') }}" class="btn btn-danger">KELUAR</a>
                 @else
                     <a href="{{ route('login') }}" class="btn me-2 btn-login" style="background-color: #011B78; color: white">MASUK</a>
                     <a href="{{ route('register.show') }}" class="btn btn-secondary">DAFTAR</a>

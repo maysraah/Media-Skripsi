@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MateriController extends Controller
 {
@@ -61,19 +62,27 @@ class MateriController extends Controller
         }
 
         if ($bab == 4 && $page == 1) {
-            $data['btnSelanjutnya']['url'] = route('siswa.kuis_linear');
+            $data['btnSelanjutnya']['url'] = Auth::check()
+                ? route('siswa.kuis_linear')
+                : route('siswa.materi', ['bab' => $bab, 'page' => $page + 1]);
         }
 
         if ($bab == 4 && $page == 2) {
-            $data['btnSelanjutnya']['url'] = route('siswa.kuis_biner');
+            $data['btnSelanjutnya']['url'] = Auth::check()
+                ? route('siswa.kuis_biner')
+                : route('siswa.materi', ['bab' => $bab, 'page' => $page + 1]);
         }
 
         if ($bab == 4 && $page == 3) {
-            $data['btnSelanjutnya']['url'] = route('siswa.kuis_sentinel');
+            $data['btnSelanjutnya']['url'] = Auth::check()
+                ? route('siswa.kuis_sentinel')
+                : route('siswa.materi', ['bab' => $bab, 'page' => $page + 1]);
         }
 
         if ($bab == 4 && $page == 4) {
-            $data['btnSelanjutnya']['url'] = route('siswa.evaluasi');
+            $data['btnSelanjutnya']['url'] = Auth::check()
+                ? route('siswa.evaluasi')
+                : route('login');
         }
 
         $data['title'] = $this->materi[$bab]['pages'][$page - 1];

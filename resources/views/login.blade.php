@@ -3,15 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ThinkSearch Login</title>
+  <title>ThinkToSearch Login</title>
   <link rel="icon" type="image/png" href="{{ asset('storage/img/logo.png') }}">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
 <body>
   <div class="container p-3">
-    <h2 class="text-center">Selamat Datang di Media Pembelajaran</h2>
-    <h2 class="text-center">Algoritma Pencarian <i>(Searching)</i> Kelas X</h2>
+    <h2 class="text-center">Selamat Datang di Media Think to Search</h2>
+    {{-- <h2 class="text-center">Algoritma Pencarian <i>(Searching)</i> Kelas X</h2> --}}
     <div class="row justify-content-center align-items-center mt-5">
       <div class="col-md-6 text-center">
         <img src="{{ asset('storage/img/login.png') }}" class="img-fluid rounded">

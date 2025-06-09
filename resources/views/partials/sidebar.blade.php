@@ -8,6 +8,12 @@
             font-family: 'Segoe UI', Tahoma, sans-serif;
         }
 
+        #nama_media {
+            background: linear-gradient(to right, #011B78, #338feb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         /* Hilangkan margin dan padding default */
         html, body {
             margin: 0 !important;
@@ -100,6 +106,20 @@
     </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
+    @php
+        $isLoggedIn = Auth::check();
+    @endphp
+
+    {{-- Nama Pengguna --}}
+    @if($isLoggedIn)
+        <div class="nav-item px-3 py-2 font-weight-bold">
+            {{ Auth::user()->name }}
+        </div>
+    @else
+        <div class="nav-item px-3 py-2 font-weight-bold">
+            🔒 Belum login
+        </div>
+    @endif
 
 <div class="wrapper">
     <!-- Navbar -->
@@ -119,17 +139,19 @@
                 </button>
             </li>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <i class="fas fa-user"></i>
-                    <span class="ml-2">{{ Auth::user()->name }}</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" aria-labelledby="userDropdown">
-                    <a href="{{ route('login.logout') }}" class="dropdown-item">
-                        <i class="fas fa-sign-out-alt mr-2"></i> Logout
+            @auth
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                        <span class="ml-2">{{ Auth::user()->name }}</span>
                     </a>
-                </div>
-            </li>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a href="{{ route('login.logout') }}" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Keluar
+                        </a>
+                    </div>
+                </li>
+            @endauth
         </ul>
     </nav>
 
@@ -170,7 +192,7 @@
     <!-- Sidebar -->
     <aside class="main-sidebar sidebar-light-primary elevation-4">
         <div class="brand-link d-flex justify-content-between align-items-center pr-2">
-            <h4 style="color: #6f727a; margin: 0;">Think<span style="color: #011B78;">Search</span></h4>
+            <h4 id="nama_media">Think to Search</h4>
             <button id="closeSidebarBtn" onclick="closeSidebar()" class="btn btn-sm text-danger" style="font-size: 1.2rem;">
                 <i class="fas fa-times"></i>
             </button>
@@ -232,21 +254,45 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('siswa.kuis_linear') }}" class="nav-link">Kuis Pencarian Linear</a>
+                                @if($isLoggedIn)
+                                    <a href="{{ route('siswa.kuis_linear') }}" class="nav-link">Kuis Pencarian Linear</a>
+                                @else
+                                    <a href="{{ route('login') }}" 
+                                        onclick="event.preventDefault(); showLoginAlert();" 
+                                        class="nav-link text-muted">
+                                        Kuis Pencarian Linear
+                                    </a>
+                                @endif
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('siswa.materi', ['bab' => 4, 'page' => 2]) }}" class="nav-link {{ request('bab') == 4 && request('page') == 2 ? 'active' : '' }}">
                                     Pencarian Biner <i>(Binary Search)</i></a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('siswa.kuis_biner') }}" class="nav-link">Kuis Pencarian Biner</a>
+                                @if($isLoggedIn)
+                                    <a href="{{ route('siswa.kuis_biner') }}" class="nav-link">Kuis Pencarian Biner</a>
+                                @else
+                                    <a href="{{ route('login') }}" 
+                                        onclick="event.preventDefault(); showLoginAlert();" 
+                                        class="nav-link text-muted">
+                                        Kuis Pencarian Biner
+                                    </a>
+                                @endif
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('siswa.materi', ['bab' => 4, 'page' => 3]) }}" class="nav-link {{ request('bab') == 4 && request('page') == 3 ? 'active' : '' }}">
                                     Pencarian Beruntun dengan Sentinel</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Kuis Pencarian Beruntun dengan Sentinel</a>
+                                @if($isLoggedIn)
+                                    <a href="{{ route('siswa.kuis_sentinel') }}" class="nav-link">Kuis Pencarian Beruntun dengan Sentinel</a>
+                                @else
+                                    <a href="{{ route('login') }}" 
+                                        onclick="event.preventDefault(); showLoginAlert();" 
+                                        class="nav-link text-muted">
+                                        Kuis Pencarian Beruntun dengan Sentinel
+                                    </a>
+                                @endif
                             </li>
                             <li class="nav-item">
                                 <a href="{{ route('siswa.materi', ['bab' => 4, 'page' => 4]) }}" class="nav-link {{ request('bab') == 4 && request('page') == 4 ? 'active' : '' }}">
@@ -254,7 +300,15 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="{{ route('siswa.evaluasi') }}" class="nav-link"><b>Evaluasi</b></a>
+                    @if($isLoggedIn)
+                        <a href="{{ route('siswa.evaluasi') }}" class="nav-link"><b>Evaluasi</b></a>
+                    @else
+                        <a href="{{ route('login') }}" 
+                            onclick="event.preventDefault(); showLoginAlert();" 
+                            class="nav-link text-muted">
+                            Evaluasi
+                        </a>
+                    @endif
             </nav>
         </div>
     </aside>
@@ -327,6 +381,19 @@
             }, 300); // Delay untuk memastikan dropdown terbuka terlebih dahulu
         }
     });
+
+    function showLoginAlert() {
+        Swal.fire({
+            icon: 'warning',
+            title: 'Akses Ditolak',
+            text: 'Silakan masuk terlebih dahulu untuk mengakses kuis.',
+            confirmButtonText: 'Masuk Sekarang'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '{{ route('login') }}';
+            }
+        });
+    }
 </script>
 </body>
 

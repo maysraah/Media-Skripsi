@@ -20,6 +20,8 @@ Route::get('/register', [RegisterController::class, 'show'])->name('register.sho
 Route::post('/register', [RegisterController::class, 'store'])->name('register.store');
 Route::get('/login', [LoginController::class, 'show'])->name('login');
 Route::post('/login', [LoginController::class, 'auth'])->name('login.auth');
+Route::get('/siswa/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+Route::get('/materi/{bab}/{page}', [MateriController::class, 'index'])->name('siswa.materi');
 
 // Logout (butuh login)
 Route::middleware('auth')->get('/logout', [LoginController::class, 'logout'])->name('login.logout');
@@ -36,12 +38,6 @@ Route::middleware(['auth', 'role:guru'])->prefix('guru')->group(function () {
 
 // Route untuk SISWA
 Route::middleware(['auth', 'role:siswa'])->group(function () {
-    Route::get('/siswa/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
-
-    Route::controller(MateriController::class)->group(function () {
-        Route::get('/materi/{bab}/{page}', 'index')->name('siswa.materi');
-    });
-
     // Kuis Linear
     Route::get('/kuis/pencarian_linear', [KuisController::class, 'kuis_linear'])->name('siswa.kuis_linear');
     Route::get('/kuis_linear', [KuisController::class, 'index_linear'])->name('kuis.kuis_linear');

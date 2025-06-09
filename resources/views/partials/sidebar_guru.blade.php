@@ -8,6 +8,12 @@
             font-family: 'Segoe UI', Tahoma, sans-serif;
         }
 
+        #nama_media {
+            background: linear-gradient(to right, #011B78, #338feb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         /* Hilangkan margin dan padding default */
         html, body {
             margin: 0 !important;
@@ -164,7 +170,7 @@
     <!-- Sidebar -->
     <aside class="main-sidebar sidebar-light-primary elevation-4">
         <div class="brand-link d-flex justify-content-between align-items-center pr-2">
-            <h4 style="color: #6f727a; margin: 0;">Think<span style="color: #011B78;">Search</span></h4>
+            <h4 id="nama_media">Think to Search</h4>
             <button id="closeSidebarBtn" onclick="closeSidebar()" class="btn btn-sm text-danger" style="font-size: 1.2rem;">
                 <i class="fas fa-times"></i>
             </button>

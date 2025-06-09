@@ -1,5 +1,5 @@
 // Aktivitas Mengamati 
-let list = [3, 5, 7, 9, 11, 13, 15, 17, 19, 21]; // Pastikan data terurut untuk binary search
+let list = [3, 5, 7, 9, 11, 13, 15, 17, 19, 21];
 let steps = 0;
 
 function startBinarySearch() {
@@ -16,7 +16,7 @@ function startBinarySearch() {
     document.getElementById("search-box").style.transform = `translateX(0px)`;
     
     steps = 0;
-    binarySearch(target, 0, list.length - 1); // Perbaikan indeks
+    binarySearch(target, 0, list.length - 1);
 }
 
 function binarySearch(target, left, right) {
@@ -32,18 +32,15 @@ function binarySearch(target, left, right) {
     const currentElement = document.getElementById(`item${mid}`);
     const searchBox = document.getElementById("search-box");
 
-    // Pastikan elemen ditemukan sebelum mengakses propertinya
     if (!currentElement) {
         console.error(`Elemen dengan ID item${mid} tidak ditemukan`);
         return;
     }
 
-    // Ambil posisi elemen tengah relatif terhadap container
     const elementRect = currentElement.getBoundingClientRect();
     const listContainerRect = document.getElementById("list-container").getBoundingClientRect();
     const offsetX = elementRect.left - listContainerRect.left;
 
-    // Geser kotak pencarian ke posisi elemen tengah
     searchBox.style.transform = `translateX(${offsetX}px)`;
 
     setTimeout(() => {
@@ -52,7 +49,8 @@ function binarySearch(target, left, right) {
             searchBox.style.backgroundColor = 'green';
             document.getElementById("result").innerHTML = 
                 `Angka <strong>${target}</strong> ditemukan dalam daftar setelah 
-                <span class="text-success">${steps}</span> langkah.<br>Cobalah untuk melakukan pencarian dengan angka lain!`;
+                <span class="text-success">${steps}</span> langkah.<br>
+                Cobalah untuk melakukan pencarian dengan angka lain!`;
         } else {
             currentElement.classList.add('not-found');
             searchBox.style.backgroundColor = 'red';

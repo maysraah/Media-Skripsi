@@ -1,13 +1,43 @@
 /* Dekomposisi */
-.draggable {
-      cursor: move;
+.drag-dekom, .drag-algo {
+      cursor: grab;
+      background-color: #f8f9fa;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
 }
 
-.dropzone {
-      min-height: 60px;
-      border: 2px dashed #ccc;
+.drop-dekom, .drop-algo {
+      min-height: 100px;
+      border: 2px dashed #007bff;
       padding: 10px;
-      margin-bottom: 15px;
+      border-radius: 5px;
+      background-color: #e9ecef;
+      margin-bottom: 20px;
+}
+
+.dropzone h5 {
+      font-size: 1rem;
+      margin-bottom: 10px;
+}
+
+.table td, .table th {
+      vertical-align: middle;
+}
+
+.sortable-list {
+      list-style-type: none;
+      padding: 0;
+}
+
+.sortable-list li {
+      background-color: #f8f9fa;
+      padding: 10px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      cursor: move;
 }
 
 /* Pengenalan Pola */
