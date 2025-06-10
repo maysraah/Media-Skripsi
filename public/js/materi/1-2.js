@@ -127,3 +127,4 @@ function resetAlgorithm() {
   const draggedItems = dropzone.querySelectorAll(".drag-algo");
   draggedItems.forEach(item => source.appendChild(item));
 }
+

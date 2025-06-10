@@ -238,5 +238,4 @@
       </div>
   </div>
 
-
 <script src="{{ asset('js/materi/1-2.js') }}"></script>
