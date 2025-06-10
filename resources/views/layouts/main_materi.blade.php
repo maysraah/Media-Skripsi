@@ -39,7 +39,7 @@
       display: flex;
       margin-left: 250px;
       transition: margin-left 0.3s ease;
-      padding-top: 80px;
+      padding-top: 50px;
       padding-left: 20px;
       padding-right: 20px;
       padding-bottom: 20px;

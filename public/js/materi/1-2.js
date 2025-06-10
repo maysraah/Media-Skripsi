@@ -54,10 +54,6 @@ function resetJawaban() {
   dekomItems.forEach(item => activityList.appendChild(item));
 }
 
-function showInfo() {
-  alert("📘 Info Kode DDC:\n\n000 – Karya Umum\n100 – Filsafat\n200 – Agama\n300 – Ilmu Sosial\n400 – Bahasa\n500 – Ilmu Pengetahuan Alam\n    510 – Matematika\n    540 – Kimia\n    550 – Ilmu Bumi\n600 – Teknologi\n700 – Seni dan Rekreasi\n800 – Sastra\n900 – Sejarah dan Geografi");
-}
-
 // Pengenalan Pola
 function checkPattern() {
   const jawaban = document.getElementById("polaJawaban").value;

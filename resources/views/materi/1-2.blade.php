@@ -34,38 +34,81 @@
         <div class="card-header bg-primary text-white">Babak 1 – Dekomposisi</div>
         <div class="card-body">
             <p>Kamu diberi tugas untuk mencari sebuah buku berjudul <b>"Kimia Dasar" karya Hardjono Sastromidjojo</b></p>
-            <button class="btn btn-info" onclick="showInfo()">ℹ️ Info Kode DDC</button>
-            <p style="color:rgb(102, 101, 101)">*Klik tombol diatas untuk melihat informasi kode DDC</p>
-            <div class="row g-4 mt-3">
-            <div class="col-md-6">
-                <div class="border p-3 bg-white rounded">
-                    <h5>Komponen Aktivitas</h5>
-                    <div id="activity-list">
-                        <div class="drag-dekom" draggable="true" data-id="A">Menentukan bahwa buku berkaitan dengan topik Kimia</div>
-                        <div class="drag-dekom" draggable="true" data-id="B">Menemukan kode DDC untuk Kimia (contoh: 540)</div>
-                        <div class="drag-dekom" draggable="true" data-id="C">Mencari rak perpustakaan yang sesuai dengan kode DDC 540</div>
-                        <div class="drag-dekom" draggable="true" data-id="D">Menelusuri buku berdasarkan urutan nama pengarang atau judul</div>
-                        <div class="drag-dekom" draggable="true" data-id="E">Menggunakan peta perpustakaan untuk mengetahui letak rak 500</div>
-                        <div class="drag-dekom" draggable="true" data-id="F">Mengecek nama pengarang pada punggung buku untuk memastikan kecocokan judul</div>
-                    </div>
+            <!-- Tombol Info -->
+            <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#modalDDC">
+            ℹ️ Info Kode DDC
+            </button>
+
+            <!-- Modal Bootstrap -->
+            <div class="modal fade" id="modalDDC" tabindex="-1" aria-labelledby="modalDDCLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalDDCLabel">📘 Info Kode DDC</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+                <div class="modal-body text-start">
+                    <ul style="padding-left: 20px;">
+                    <li><strong>000</strong> – Karya Umum</li>
+                    <li><strong>100</strong> – Filsafat</li>
+                    <li><strong>200</strong> – Agama</li>
+                    <li><strong>300</strong> – Ilmu Sosial</li>
+                    <li><strong>400</strong> – Bahasa</li>
+                    <li><strong>500</strong> – Ilmu Pengetahuan Alam
+                        <ul>
+                        <li><strong>510</strong> – Matematika</li>
+                        <li><strong>540</strong> – Kimia</li>
+                        <li><strong>550</strong> – Ilmu Bumi</li>
+                        </ul>
+                    </li>
+                    <li><strong>600</strong> – Teknologi</li>
+                    <li><strong>700</strong> – Seni dan Rekreasi</li>
+                    <li><strong>800</strong> – Sastra</li>
+                    <li><strong>900</strong> – Sejarah dan Geografi</li>
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div id="dekomposisi-area" class="border p-3 bg-white rounded">
-                    <div class="drop-dekom mb-3 p-2 border" data-group="Topik"><h5>1. Menentukan Topik Buku</h5></div>
-                    <div class="drop-dekom mb-3 p-2 border" data-group="DDC"><h5>2. Menentukan Kode Klasifikasi (DDC)</h5></div>
-                    <div class="drop-dekom mb-3 p-2 border" data-group="Lokasi"><h5>3. Menentukan Lokasi Rak Buku</h5></div>
-                    <div class="drop-dekom mb-3 p-2 border" data-group="Rak"><h5>4. Menelusuri Rak untuk Menemukan Buku</h5></div>
-                </div><br>
-                <button class="btn btn-success" onclick="cekJawaban()">Cek Jawaban</button>
-                <button class="btn btn-danger" onclick="resetJawaban()">Reset</button>
+            </div>
+
+            <p style="color:rgb(102, 101, 101)">*Klik tombol diatas untuk melihat informasi kode DDC</p>
+            <p><b>Instruksi Pengerjaan:</b> Seret dan kelompokkan komponen-komponen kegiatan berikut ini ke dalam submasalah yang relevan!</p>
+            <div class="row g-4 mt-3">
+                <div class="col-md-6">
+                    <div class="border p-3 bg-white rounded">
+                        <h5>Komponen Aktivitas</h5>
+                        <div id="activity-list">
+                            <div class="drag-dekom" draggable="true" data-id="A">Menentukan bahwa buku berkaitan dengan topik Kimia</div>
+                            <div class="drag-dekom" draggable="true" data-id="B">Menemukan kode DDC untuk Kimia (contoh: 540)</div>
+                            <div class="drag-dekom" draggable="true" data-id="C">Mencari rak perpustakaan yang sesuai dengan kode DDC 540</div>
+                            <div class="drag-dekom" draggable="true" data-id="D">Menelusuri buku berdasarkan urutan nama pengarang atau judul</div>
+                            <div class="drag-dekom" draggable="true" data-id="E">Menggunakan peta perpustakaan untuk mengetahui letak rak 500</div>
+                            <div class="drag-dekom" draggable="true" data-id="F">Mengecek nama pengarang pada punggung buku untuk memastikan kecocokan judul</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="dekomposisi-area" class="border p-3 bg-white rounded">
+                        <h5>Susun Langkah:</h5>
+                        <div class="drop-dekom mb-3 p-2 border" data-group="Topik"><h5>1. Menentukan Topik Buku</h5></div>
+                        <div class="drop-dekom mb-3 p-2 border" data-group="DDC"><h5>2. Menentukan Kode Klasifikasi (DDC)</h5></div>
+                        <div class="drop-dekom mb-3 p-2 border" data-group="Lokasi"><h5>3. Menentukan Lokasi Rak Buku</h5></div>
+                        <div class="drop-dekom mb-3 p-2 border" data-group="Rak"><h5>4. Menelusuri Rak untuk Menemukan Buku</h5></div>
+                    </div><br>
+                    <button class="btn btn-danger" onclick="resetJawaban()">Reset</button>
+                    <button class="btn btn-success" onclick="cekJawaban()">Cek Jawaban</button>
+                    {{-- <button class="btn btn-danger" onclick="resetJawaban()">Reset</button> --}}
+                </div>
             </div>
         </div>
     </div>
 </div><br>
 
 {{-- Pengenalan Pola --}}
-<div id="pengenalan-pola">
+
   <h5 style="color:#011B78">(2) Pengenalan Pola</h5><br>
 
   <p class="text-justify" style="text-indent: 2em; padding-left: 20px;">
@@ -114,10 +157,8 @@
           </div>
       </div>
   </div>
-</div>
 
 {{-- Abstraksi --}}
-<div id="abstraksi">
   <h5 style="color:#011B78">(3) Abstraksi</h5>
 
   <p class="text-justify" style="text-indent: 2em; padding-left: 20px;">
@@ -160,10 +201,9 @@
               </div>
       </div>
   </div>
-</div>
 
 {{-- Algoritma --}}
-<div id="algoritma">
+
   <h5 style="color:#011B78">(4) Algoritma</h5>
 
   <p class="text-justify" style="text-indent: 2em; padding-left: 20px;">
@@ -179,6 +219,7 @@
       <div class="card mb-4">
           <div class="card-header bg-primary text-white">Babak 4 – Algoritma</div>
           <div class="card-body">
+            <p>Setelah menyelesaikan aktivitas di tahap Dekomposisi, Pengenalan Pola, dan Abstraksi, kamu harus menyusun langkah-langkah pencarian secara runtut dan jelas untuk menemukan buku <b>"Kimia Dasar" karya Hardjono Sastromidjojo</b>.</p>
             <p>Susun langkah berikut untuk menemukan buku:</p>
             <div class="row">
                 <div class="col-md-6" id="algo-source">
@@ -187,6 +228,7 @@
                     <div id="step3" class="drag-algo" draggable="true" ondragstart="dragAlgo(event)">Cari rak bertanda "540"</div>
                 </div>
                 <div class="col-md-6">
+                    <p><b>Instruksi Pengerjaan:</b> Seret dan susun langkah dengan terurut pada kotak isian yang telah disediakan!</p>
                     <div class="drop-algo list-group" id="algo-dropzone" ondrop="dropAlgo(event)" ondragover="allowDropAlgo(event)"></div>
                     <button class="btn btn-danger mt-2" onclick="resetAlgorithm()">Reset</button>
                     <button class="btn btn-success mt-2" onclick="checkAlgorithm()">Cek Jawaban</button>
@@ -195,6 +237,6 @@
         </div>
       </div>
   </div>
-</div>
+
 
 <script src="{{ asset('js/materi/1-2.js') }}"></script>
