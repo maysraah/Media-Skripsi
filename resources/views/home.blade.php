@@ -20,6 +20,7 @@
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
             display: inline-block;
+            text-decoration: none;
         }
 
         .start-btn:hover {

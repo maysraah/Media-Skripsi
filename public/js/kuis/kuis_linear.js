@@ -20,12 +20,12 @@ const questions = [
         "Data sangat besar dan tidak terurut",
         "Data statis dan sudah terurut"] },
 
-    { question: "Dalam algoritma pencarian linear, yang terjadi jika elemen yang dicari tidak ada dalam daftar adalah....", options: 
-          ["Algoritma akan terus mencari sampai akhir daftar", 
-          "Algoritma berhenti di tengah", 
-          "Algoritma akan kembali ke elemen pertama",
-          "Algoritma akan menghapus elemen dari daftar",
-          "Algoritma akan menghasilkan pesan 'tidak ditemukan'"] },
+    { question: "Seorang siswa ingin mencari angka “27” dalam barisan berikut: <br>[10, 14, 19, 27, 33, 40] <br>Agar proses pencarian linear dapat dilakukan dengan benar, komponen sub-masalah yang perlu dianalisis terlebih dahulu adalah....", options: 
+          ["Menghitung nilai tengah dari barisan", 
+          "Menentukan apakah barisan sudah terurut", 
+          "Menentukan elemen yang dicari dan memulai dari indeks pertama",
+          "Membagi data menjadi dua bagian",
+          "Menambahkan nilai sentinel ke barisan"] },
 
 { question: "Pada pencarian linear, yang perlu dilakukan untuk setiap elemen dalam daftar adalah....", options: 
       ["Menyimpan setiap elemen ke dalam memori baru", 
@@ -34,35 +34,35 @@ const questions = [
       "Membandingkan elemen dengan nilai yang dicari",
       "Menyortir elemen sebelum pencarian"] },
 
-{ question: "Diberikan daftar angka sebagai berikut: [3, 8, 12, 5, 7, 14, 9]. Carilah angka 7. Banyak perbandingan yang dilakukan untuk menemukan angka tersebut adalah....", options: 
+{ question: "Diberikan barisan angka sebagai berikut: <br>[3, 8, 12, 5, 7, 14, 9]. <br>Carilah angka 7. Banyak perbandingan yang dilakukan untuk menemukan angka tersebut adalah....", options: 
       ["1", 
       "3",
       "5",
       "6",
       "7"] },
   
-{ question: "Diberikan daftar angka sebagai berikut: [15, 22, 8, 19, 31, 4]. Apakah angka 22 ditemukan dalam daftar, dan banyak perbandingan yang diperlukan adalah....", options: 
+{ question: "Diberikan barisan angka sebagai berikut: <br>[15, 22, 8, 19, 31, 4]. <br>Apakah angka 22 ditemukan dalam barisan, dan banyak perbandingan yang diperlukan adalah....", options: 
       ["Tidak ditemukan, 6 perbandingan", 
       "Ditemukan, 1 perbandingan",
       "Ditemukan, 2 perbandingan",
       "Tidak ditemukan, 3 perbandingan",
       "Ditemukan, 5 perbandingan"] },
 
-{ question: "Diberikan daftar angka sebagai berikut: [3, 6, 1, 8, 10, 15]. Carilah angka 8 sebagai target pencarian. Setelah berapa perbandingan angka tersebut ditemukan?", options: 
+{ question: "Diberikan barisan angka sebagai berikut: <br>[3, 6, 1, 8, 10, 15]. <br>Carilah angka 8 sebagai target pencarian. Setelah berapa perbandingan angka tersebut ditemukan?", options: 
       ["2", 
       "3",
       "4",
       "5",
       "6"] },
 
-{ question: "Diberikan daftar angka sebagai berikut: [13, 29, 47, 55, 63, 78]. Apakah angka 47 ada di dalam daftar? Jika ya, berapa banyak perbandingan yang diperlukan untuk menemukannya?", options: 
+{ question: "Diberikan barisan angka sebagai berikut: <br>[13, 29, 47, 55, 63, 78]. <br>Apakah angka 47 ada di dalam barisan? Jika ya, berapa banyak perbandingan yang diperlukan untuk menemukannya?", options: 
       ["Ya, 1 perbandingan", 
       "Ya, 2 perbandingan",
       "Ya, 3 perbandingan",
       "Tidak ditemukan",
       "Ya, 4 perbandingan"] },
 
-{ question: "Diberikan daftar angka sebagai berikut: [4, 9, 16, 25, 36, 49, 64]. Cari angka 49. Banyak perbandingan yang diperlukan adalah....", options: 
+{ question: "Diberikan barisan angka sebagai berikut: <br>[4, 9, 16, 25, 36, 49, 64]. <br>Cari angka 49. Banyak perbandingan yang diperlukan adalah....", options: 
       ["4", 
       "5",
       "6",
@@ -189,7 +189,7 @@ loadProgress();
 renderQuestion(currentQuestionIndex);
 renderNavigation();
 
-const TOTAL_TIME = 50 * 60; // 50 menit dalam detik
+const TOTAL_TIME = 30 * 60; // 30 menit dalam detik
 const TIMER_KEY = 'kuis_linear_startTime';
 let timer;
 let timerElement = document.querySelector('.timer');
@@ -234,7 +234,7 @@ startTimer();
 const correctAnswers = ["Menemukan nilai tertentu dalam sebuah kumpulan data",
   "Membandingkan setiap elemen dalam daftar mulai dari elemen pertama hingga ditemukan nilai yang cocok",
   "Data sangat besar dan tidak terurut",
-  "Algoritma akan terus mencari sampai akhir daftar",
+  "Menentukan elemen yang dicari dan memulai dari indeks pertama",
   "Membandingkan elemen dengan nilai yang dicari",
   "5",
   "Ditemukan, 2 perbandingan",

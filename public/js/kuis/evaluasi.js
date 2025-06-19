@@ -1,46 +1,88 @@
 const questions = [
-    { question: "Tujuan utama dari algoritma pencarian adalah....", options: 
-      ["Mengurutkan data.", 
-      "Menemukan elemen tertentu dalam data", 
+    { question: "Tia ingin mencari buku di perpustakaan yang tidak memiliki katalog digital. Langkah paling logis untuk memecah masalah pencarian ini adalah....", options: 
+      ["Menghitung jumlah buku di perpustakaan", 
+      "Menentukan lokasi rak, kategori buku, dan mencari satu per satu", 
+      "Menghafal semua judul buku yang ada",
+      "Menanyakan semua pengunjung tentang lokasi buku",
+      "Mengurutkan semua buku sebelum dicari"] },
+      
+    { question: "Seorang siswa diminta mencari buku berjudul <i>“Kimia Dasar”</i>. Tanpa bantuan katalog, ia harus memecah masalah pencarian tersebut menjadi beberapa bagian. <br>Langkah yang paling tepat mewakili submasalah utama dalam konteks pencarian buku ini adalah....", options: 
+      ["Menentukan warna sampul buku dan ukuran rak", 
+      "Mencatat nomor halaman dan jumlah bab buku",
+      "Menentukan kategori buku, menemukan lokasi rak, dan mengenali judul",
+      "Mengingat siapa peminjam sebelumnya",
+      "Menyusun ulang semua buku berdasarkan alfabet"] },
+      
+      { question: "Dalam aplikasi belanja <i>online</i>, pengguna ingin mencari produk <b>“Tas Kulit Wanita Hitam”</b>. Pengembang sistem ingin memecah proses pencarian tersebut agar bisa dirancang lebih efisien.<br>Komponen masalah yang paling relevan untuk dianalisis dan dipecah oleh pengembang adalah....", options: 
+        ["Harga barang, waktu buka aplikasi, dan metode pembayaran", 
+        "Kategori produk, kata kunci pencarian, dan atribut warna",
+        "Nomor urut daftar belanja dan total belanja mingguan",
+        "Siapa yang membuat produk dan dari mana asalnya",
+        "Cara menyortir berdasarkan popularitas"] },
+
+    { question: "Di perpustakaan, seorang siswa ingin mencari buku <b>“Kimia Dasar”</b> di rak dengan label kode DDC: <b>500–599</b>. Rak sudah disusun berdasarkan urutan angka. Strategi pencarian paling efisien untuk kasus ini adalah....", options: 
+          ["Menelusuri dari awal sampai akhir rak satu per satu", 
+          "Membagi rak menjadi dua dan memeriksa bagian tengah terlebih dahulu", 
+          "Memilih rak secara acak dan membaca setiap judul",
+          "Menunggu bantuan pustakawan",
+          "Menyaring buku berdasarkan warna dan ketebalan"] },
+
+{ question: "Dalam proses pencarian sebuah data, siswa mengenali bahwa data selalu diawali dengan huruf <b>'K'</b>. Ia memutuskan untuk langsung menuju bagian daftar yang berisi elemen awal <b>'K'</b>. Strategi ini menunjukkan penerapan dari tahap CT....", options: 
+      ["Dekomposisi", 
+      "Abstraksi",
+      "Algoritma",
+      "Pengenalan Pola",
+      "Rekursif"] },
+
+{ question: "Di perpustakaan sekolah, semua buku sudah disusun berdasarkan kode DDC yang terurut. Seorang siswa ingin mencari buku dengan kode 540 (kimia). <br>Strategi pencarian paling efisien yang seharusnya ia pilih adalah...", options: 
+      ["Telusuri semua rak dari awal", 
+      "Menanyakan pustakawan lalu membaca semua judul",
+      "Gunakan strategi pencarian biner berdasarkan urutan kode",
+      "Lihat sampul buku berdasarkan warna",
+      "Membaca setiap kode buku secara berurutan tanpa memperhatikan pola urutan"] },
+  
+{ question: "Dalam menyelesaikan masalah pencarian pada data besar, siswa memecah data berdasarkan kategori terlebih dahulu, kemudian menerapkan algoritma pencarian tertentu sesuai struktur data. Pendekatan ini menunjukkan strategi berpikir yang menggabungkan....", options: 
+      ["Visualisasi dan simulasi", 
+      "Abstraksi dan Rekursi",
+      "Dekomposisi dan Algoritma",
+      "<i>Looping</i> dan Pencabangan",
+      "<i>Sorting</i> dan <i>Hashing</i>"] },
+
+{ question: "Seorang siswa diminta mencari angka 42 dalam daftar terurut menaik berisi 1000 elemen. Ia menyusun strategi berikut:<ul><li>Langkah 1: Tentukan nilai tengah</li><li>Langkah 2: Bandingkan nilai tengah dengan 42</li><li>Langkah 3: Eliminasi bagian yang tidak mungkin</li><li>Langkah 4: Ulangi proses pada sisa data</li></ul>Strategi tersebut mencerminkan penerapan algoritma....", options: 
+      ["Pencarian Linear", 
+      "Pencarian Beruntun",
+      "Pencarian dengan Sentinel",
+      "Pencarian Acak",
+      "Pencarian Biner"] },
+
+{ question: "Tujuan utama dari algoritma pencarian adalah....", options: 
+      ["Mengurutkan data", 
+      "Menemukan elemen tertentu dalam data",
       "Menghitung total elemen dalam dataset",
       "Mengubah struktur data",
       "Menyimpan data dengan lebih efisien"] },
-      
-    { question: "Karakteristik utama dari algoritma pencarian linear adalah....", options: 
+
+{ question: "Karakteristik utama dari algoritma pencarian linear adalah....", options: 
       ["Mencari dengan membagi data menjadi dua bagian", 
       "Selalu berhasil menemukan data pada percobaan pertama",
       "Memeriksa elemen satu per satu dari awal hingga akhir",
       "Hanya bisa digunakan pada data yang sudah diurutkan",
       "Menggunakan struktur data pohon untuk pencarian"] },
-      
-      { question: "Algoritma pencarian linear akan berhenti saat....", options: 
-        ["Elemen ditemukan atau akhir daftar tercapai", 
-        "Seluruh elemen sudah diperiksa, terlepas dari hasil pencarian",
-        "Elemen yang dicari tidak ada di awal daftar",
-        "Data yang dicari lebih besar dari elemen pertama",
-        "Terdapat pengulangan elemen dalam daftar"] },
 
-    { question: "Dalam pencarian linear, jika terdapat 100 elemen dan elemen yang dicari ada di posisi ke-100, berapa kali perbandingan yang dilakukan?", options: 
-          ["50", 
-          "99", 
-          "1",
-          "100",
-          "101"] },
+{ question: "Dalam pencarian linear, jika terdapat 100 elemen dan elemen yang dicari ada di posisi ke-100, perbandingan yang dilakukan sebanyak ... kali.", options: 
+      ["50", 
+      "99",
+      "1",
+      "100",
+      "101"] },
 
-{ question: "Manakah dari berikut ini yang merupakan kelemahan utama dari algoritma pencarian linear?", options: 
-      ["Hanya berfungsi untuk data terurut", 
-      "Tidak dapat menemukan elemen yang sama",
-      "Lambat untuk dataset yang besar",
-      "Memerlukan indeks khusus untuk berfungsi",
-      "Tidak dapat digunakan pada daftar"] },
-
-{ question: "Kapan pencarian linear lebih efisien dibandingkan pencarian biner?", options: 
+{ question: "Pencarian linear lebih efisien dibandingkan pencarian biner dalam kondisi....", options: 
       ["Pada dataset yang sangat besar", 
       "Jika data sudah diurutkan",
       "Ketika hanya sedikit elemen yang harus dicari",
       "Jika data memiliki struktur yang sangat kompleks",
       "Ketika elemen yang dicari berada di posisi terakhir"] },
-  
+
 { question: "Yang membuat pencarian linear tetap relevan meskipun ada metode yang lebih cepat seperti pencarian biner adalah....", options: 
       ["Pencarian linear selalu lebih cepat", 
       "Pencarian linear hanya berfungsi pada data yang terurut",
@@ -53,7 +95,7 @@ const questions = [
       "Data harus tidak terurut",
       "Elemen pertama harus lebih besar dari elemen kedua",
       "Data harus disimpan dalam pohon biner",
-      "Data harus dalam array berukuran genap"] },
+      "Data harus dalam daftar berukuran genap"] },
 
 { question: "Pada pencarian biner, jika elemen tengah lebih besar dari elemen yang dicari, yang harus dilakukan adalah....", options: 
       ["Memeriksa bagian kanan daftar", 
@@ -62,28 +104,14 @@ const questions = [
       "Menghentikan pencarian",
       "Menukar elemen tengah dengan elemen yang lebih kecil"] },
 
-{ question: "Jika elemen yang dicari tidak ada dalam array pada pencarian biner, yang akan terjadi adalah....", options: 
-      ["Algoritma akan berhenti setelah membagi daftar sekali", 
-      "Algoritma akan terus berjalan hingga akhir daftar",
-      "Algoritma akan mengembalikan indeks -1 atau indikasi elemen tidak ditemukan",
-      "Algoritma akan mengulang pencarian dari awal",
-      "Data akan diurutkan ulang"] },
-
-{ question: "Bagaimana pencarian biner memilih elemen pertama untuk diperiksa?", options: 
+{ question: "Cara pencarian biner memilih elemen pertama yang diperiksa adalah dengan memilih....", options: 
       ["Elemen pertama dalam daftar", 
       "Elemen di tengah daftar",
       "Elemen terakhir dalam daftar",
       "Elemen terkecil dalam daftar",
       "Elemen acak dalam daftar"] },
 
-{ question: "Bagaimana cara pencarian biner mengurangi ukuran ruang pencarian setelah setiap perbandingan?", options: 
-      ["Dengan menambahkan elemen baru", 
-      "Dengan membagi daftar menjadi tiga bagian",
-      "Dengan memeriksa hanya setengah daftar yang relevan",
-      "Dengan menyimpan semua elemen yang telah diperiksa",
-      "Dengan menggunakan hash function"] },
-
-{ question: "Mengapa pencarian biner lebih cepat dibandingkan pencarian linear pada dataset yang besar?", options: 
+{ question: "Pencarian biner lebih cepat dibandingkan pencarian linear pada dataset yang besar karena....", options: 
       ["Pencarian biner hanya membutuhkan satu perbandingan", 
       "Pencarian biner menggunakan lebih sedikit memori",
       "Pencarian biner membagi ruang pencarian secara logaritmik",
@@ -104,40 +132,12 @@ const questions = [
       "Di posisi tengah daftar",
       "Di posisi acak dalam daftar"] },
 
-{ question: "Jika kita menggunakan sentinel dalam pencarian, yang perlu dilakukan setelah menemukan sentinel adalah....", options: 
-      ["Menghentikan pencarian", 
-      "Mencari elemen dalam daftar",
-      "Mencatat posisi sentinel",
-      "Mengurutkan ulang data",
-      "Tidak perlu melakukan apa-apa"] },
-
 { question: "Nilai yang biasanya digunakan untuk sentinel adalah....", options: 
       ["Nilai terkecil dalam daftar", 
       "Nilai yang sama dengan elemen yang dicari",
       "Nilai terbesar dalam daftar",
       "Nilai random",
-      "Null"] },
-
-{ question: "Apa yang terjadi jika elemen yang dicari tidak ada dalam array saat menggunakan sentinel?", options: 
-      ["Pencarian akan berlanjut tanpa henti", 
-      "Sentinel akan ditemukan di akhir pencarian",
-      "Pencarian akan berhenti tanpa hasil",
-      "Sentinel akan diganti dengan nilai baru",
-      "Algoritma akan mengembalikan nilai acak"] },
-
-{ question: "Kelemahan utama dari metode pencarian beruntun dengan sentinel adalah....", options: 
-      ["Memerlukan lebih banyak waktu untuk mencari", 
-      "Mengurangi keakuratan pencarian",
-      "Memerlukan memori tambahan untuk sentinel",
-      "Hanya dapat digunakan untuk data terurut",
-      "Tidak dapat digunakan untuk data dengan elemen yang sama"] },
-
-{ question: "Dalam pencarian beruntun dengan sentinel, apa yang bisa dilakukan untuk memastikan bahwa elemen yang ditemukan adalah elemen yang dicari?", options: 
-      ["Tidak perlu pengecekan tambahan", 
-      "Hanya periksa posisi sentinel",
-      "Hapus sentinel dari array setelah pencarian",
-      "Bandingkan elemen yang ditemukan dengan nilai yang dicari",
-      "Ulangi pencarian dari awal"] }
+      "Null"] }
 ];
 
 let currentQuestionIndex = 0;
@@ -301,26 +301,26 @@ function startTimer() {
 startTimer();
 
 //Periksa Jawaban
-const correctAnswers = ["Menemukan elemen tertentu dalam data",
+const correctAnswers = ["Menentukan lokasi rak, kategori buku, dan mencari satu per satu",
+  "Menentukan kategori buku, menemukan lokasi rak, dan mengenali judul",
+  "Kategori produk, kata kunci pencarian, dan atribut warna",
+  "Membagi rak menjadi dua dan memeriksa bagian tengah terlebih dahulu",
+  "Pengenalan Pola ",
+  "Gunakan strategi pencarian biner berdasarkan urutan kode",
+  "Dekomposisi dan Algoritma",
+  "Pencarian Biner",
+  "Menemukan elemen tertentu dalam data",
   "Memeriksa elemen satu per satu dari awal hingga akhir",
-  "Elemen ditemukan atau akhir daftar tercapai",
   "100",
-  "Lambat untuk dataset yang besar",
   "Ketika hanya sedikit elemen yang harus dicari",
   "Pencarian linear lebih sederhana dan dapat digunakan pada data tidak terurut",
   "Data harus sudah terurut",
   "Memeriksa bagian kiri daftar",
-  "Algoritma akan mengembalikan indeks -1 atau indikasi elemen tidak ditemukan",
   "Elemen di tengah daftar",
-  "Dengan memeriksa hanya setengah daftar yang relevan",
   "Pencarian biner membagi ruang pencarian secara logaritmik",
   "Menghindari pengecekan indeks batas",
   "Di posisi setelah elemen terakhir",
-  "Mencari elemen dalam daftar",
   "Nilai yang sama dengan elemen yang dicari",
-  "Sentinel akan ditemukan di akhir pencarian",
-  "Memerlukan memori tambahan untuk sentinel",
-  "Bandingkan elemen yang ditemukan dengan nilai yang dicari",
 ];
 
 function submitQuiz() {

@@ -74,6 +74,15 @@
             display: block !important;
         }
 
+        #btn-materi{
+            background-color: #003869; 
+            color: white;
+        }
+
+        #btn-materi:hover{
+            transform: scale(1.05);
+        }
+
         @media (max-width: 768px) {
             #closeSidebarBtn {
                 display: block; 
@@ -119,6 +128,11 @@
         </ul>
 
         <ul class="navbar-nav ml-auto">
+            <li>
+                <a type="button" class="btn btn-wide px-4 py-2" href="{{ route('dashboard.index') }}" id="btn-materi">
+                    Halaman Materi
+                </a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-user"></i>
@@ -126,7 +140,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" aria-labelledby="userDropdown">
                     <a href="{{ route('login.logout') }}" class="dropdown-item">
-                        <i class="fas fa-sign-out-alt mr-2"></i> Logout
+                        <i class="fas fa-sign-out-alt mr-2"></i> Keluar
                     </a>
                 </div>
             </li>
@@ -134,7 +148,7 @@
     </nav>
 
     <!-- Modal -->
-    <div class="modal fade" id="petunjukModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    {{-- <div class="modal fade" id="petunjukModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -165,7 +179,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- Sidebar -->
     <aside class="main-sidebar sidebar-light-primary elevation-4">

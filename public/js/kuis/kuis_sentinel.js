@@ -1,31 +1,31 @@
 const questions = [
-    { question: "Diberikan sebuah daftar dengan 5 elemen dan sebuah elemen sentinel. Apa yang terjadi jika elemen yang dicari ditemukan pada elemen sentinel?", options: 
+    { question: "Diberikan sebuah daftar awal dengan 5 elemen dan sebuah elemen sentinel. Jika elemen yang dicari ditemukan pada elemen sentinel, yang terjadi adalah....", options: 
       ["Elemen ditemukan sebelum sentinel", 
-      "Elemen tidak ditemukan di dalam daftar", 
+      "Elemen tidak ditemukan di dalam daftar awal", 
       "Elemen ditemukan pada indeks terakhir",
       "Elemen selalu ditemukan di dalam daftar",
       "Elemen ditemukan pada indeks di luar daftar"] },
       
-    { question: "Langkah pertama dalam algoritma pencarian beruntun dengan sentinel adalah...", options: 
+    { question: "Langkah pertama dalam algoritma pencarian beruntun dengan sentinel adalah....", options: 
       ["Menambahkan elemen sentinel ke dalam daftar", 
       "Mengurutkan daftar sebelum pencarian",
       "Memulai pencarian dari indeks tengah",
       "Menghapus elemen yang tidak relevan dari daftar",
       "Memeriksa apakah daftar terisi penuh"] },
       
-      { question: "Bagaimana sentinel dapat membantu mengurangi jumlah perbandingan dalam pencarian beruntun?", options: 
-        ["Dengan memeriksa elemen pertama dan terakhir secara bersamaan", 
-        "Dengan menambahkan elemen fiktif yang setara dengan elemen yang dicari",
-        "Dengan mengurangi elemen yang perlu diperiksa",
-        "Dengan menghentikan pencarian lebih awal jika elemen ditemukan",
-        "Dengan menggandakan daftar yang akan dicari"] },
+      { question: "Sentinel dapat membantu mengurangi jumlah perbandingan dalam pencarian beruntun dengan....", options: 
+        ["Memeriksa elemen pertama dan terakhir secara bersamaan", 
+        "Menambahkan elemen fiktif yang setara dengan elemen yang dicari",
+        "Mengurangi elemen yang perlu diperiksa",
+        "Menghentikan pencarian lebih awal jika elemen ditemukan",
+        "Menggandakan daftar yang akan dicari"] },
 
-    { question: "Jika ditemukan bahwa pencarian beruntun dengan sentinel menghasilkan kesalahan akses di luar batas daftar, penyebab utamanya adalah....", options: 
-          ["Nilai sentinel terlalu besar", 
-          "Indeks daftar tidak diatur dengan benar", 
-          "Elemen sentinel tidak disimpan di posisi yang benar",
-          "Elemen daftar tidak sesuai dengan tipe data",
-          "Pencarian dilakukan tanpa iterasi yang cukup"] },
+    { question: "Dalam implementasi pencarian linear pada sistem sederhana, algoritma pencarian dengan sentinel dipilih karena....", options: 
+          ["Dapat digunakan hanya pada data yang telah diurutkan", 
+          "Tidak membutuhkan batasan array yang jelas", 
+          "Mencegah keluar dari batas indeks dengan menambahkan target sebagai elemen ekstra",
+          "Menghindari kebutuhan untuk membaca seluruh data",
+          "Mengurutkan data sebelum mencari"] },
 
 { question: "Hal yang perlu diperhatikan saat menentukan posisi sentinel dalam pencarian beruntun adalah....", options: 
       ["Sentinel harus berada di posisi pertama", 
@@ -62,7 +62,7 @@ const questions = [
       "Menggunakan pencarian beruntun dengan lebih dari satu sentinel",
       "Menggunakan pencarian probabilistik"] },
 
-{ question: "Bagaimana mendesain pencarian beruntun dengan sentinel jika data yang dicari sering kali berada di awal daftar?", options: 
+{ question: "Desain pencarian beruntun dengan sentinel jika data yang dicari sering kali berada di awal daftar ialah dengan....", options: 
       ["Menempatkan sentinel di awal daftar", 
       "Menambah elemen sentinel pada kedua ujung daftar",
       "Menempatkan elemen yang paling sering dicari di awal daftar",
@@ -189,7 +189,7 @@ loadProgress();
 renderQuestion(currentQuestionIndex);
 renderNavigation();
 
-const TOTAL_TIME = 50 * 60; // 50 menit dalam detik
+const TOTAL_TIME = 30 * 60; // 30 menit dalam detik
 const TIMER_KEY = 'kuis_sentinel_startTime';
 let timer;
 let timerElement = document.querySelector('.timer');
@@ -231,10 +231,10 @@ function startTimer() {
 startTimer();
 
 //Periksa Jawaban
-const correctAnswers = ["Elemen tidak ditemukan di dalam daftar",
+const correctAnswers = ["Elemen tidak ditemukan di dalam daftar awal",
   "Menambahkan elemen sentinel ke dalam daftar",
-  "Dengan menambahkan elemen fiktif yang setara dengan elemen yang dicari",
-  "Elemen sentinel tidak disimpan di posisi yang benar",
+  "Menambahkan elemen fiktif yang setara dengan elemen yang dicari",
+  "Mencegah keluar dari batas indeks dengan menambahkan target sebagai elemen ekstra",
   "Sentinel ditempatkan tepat setelah elemen terakhir",
   "Pencarian tidak akan berjalan karena tidak ada elemen",
   "Mengembalikan indeks pertama elemen yang ditemukan",

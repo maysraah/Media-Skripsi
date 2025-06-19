@@ -8,7 +8,8 @@ function startBinarySearch() {
 
     document.getElementById("search-box").innerText = target;
     document.getElementById("result").innerHTML = "";
-    
+    document.getElementById("narration").innerHTML = ""; // reset narasi
+
     document.querySelectorAll('.list-item').forEach(item => {
         item.classList.remove('found', 'not-found');
     });
@@ -43,6 +44,11 @@ function binarySearch(target, left, right) {
 
     searchBox.style.transform = `translateX(${offsetX}px)`;
 
+    // Tambahkan narasi langkah
+    const narrationDiv = document.getElementById("narration");
+    narrationDiv.innerHTML += `<div>Langkah ${steps}: Memeriksa elemen di indeks ke-${mid + 1} yaitu angka ${list[mid]}. Dibandingkan dengan angka yang dicari (${target})...</div>`;
+    narrationDiv.scrollTop = narrationDiv.scrollHeight;
+
     setTimeout(() => {
         if (list[mid] === target) { 
             currentElement.classList.add('found');
@@ -51,18 +57,26 @@ function binarySearch(target, left, right) {
                 `Angka <strong>${target}</strong> ditemukan dalam daftar setelah 
                 <span class="text-success">${steps}</span> langkah.<br>
                 Cobalah untuk melakukan pencarian dengan angka lain!`;
+            narrationDiv.innerHTML += `<div>Angka <strong>${target}</strong> cocok dengan elemen di indeks ke-${mid + 1}. Pencarian selesai!</div>`;
         } else {
             currentElement.classList.add('not-found');
             searchBox.style.backgroundColor = 'red';
+
+            narrationDiv.innerHTML += `<div>Angka yang dicari (${target}) ${
+                target < list[mid] ? 'lebih kecil' : 'lebih besar'
+            } dari angka di indeks tengah (${list[mid]}), maka pencarian dilanjutkan ke bagian ${
+                target < list[mid] ? 'kiri' : 'kanan'
+            }...</div>`;
+
             setTimeout(() => {
                 searchBox.style.backgroundColor = 'yellow';
 
                 if (list[mid] < target) {
-                    binarySearch(target, mid + 1, right); // Cari di bagian kanan
+                    binarySearch(target, mid + 1, right);
                 } else {
-                    binarySearch(target, left, mid - 1); // Cari di bagian kiri
+                    binarySearch(target, left, mid - 1);
                 }
-            }, 1000);
+            }, 3000);
         }
     }, 1000);
 }

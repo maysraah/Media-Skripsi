@@ -20,26 +20,26 @@ const questions = [
         "Lebih efisien dalam waktu pencarian pada data yang besar",
         "Memeriksa semua elemen data satu per satu"] },
 
-    { question: "Jika pencarian biner tidak menemukan nilai yang dicari, hasil yang biasanya dikembalikan yaitu....", options: 
-          ["Indeks nilai terdekat", 
-          "Indeks terakhir yang diperiksa", 
-          "Indeks -1 atau indikasi bahwa nilai tidak ditemukan",
-          "Indeks pertama dalam daftar",
-          "Indeks terbesar dalam daftar"] },
+    { question: "Kamu diberikan dua daftar data: <ul><li>Daftar A: [5, 12, 18, 22, 30]</li> <li>Daftar B: [22, 5, 30, 18, 12]</li></ul> Daftar yang memungkinkan penerapan dekomposisi pencarian biner secara tepat adalah....", options: 
+          ["Daftar A, karena datanya terurut sehingga bisa dipecah menjadi dua bagian", 
+          "Daftar B, karena memiliki lebih banyak data", 
+          "Daftar A, karena indeksnya dimulai dari angka kecil",
+          "Daftar B, karena memiliki nilai maksimum yang bisa langsung ditemukan",
+          "Daftar A, karena semua elemen adalah bilangan genap"] },
 
 { question: "Prinsip kerja algoritma pencarian biner adalah....", options: 
       ["Rekursi", 
       "Membandingkan setiap elemen satu per satu",
-      "Membagi dan menaklukkan (Divide and Conquer)",
+      "Membagi dan menaklukkan <i>(Divide and Conquer)</i>",
       "Iterasi tunggal",
       "Pengurutan"] },
 
-{ question: "Yang dimaksud dengan indeks tengah dalam pencarian biner adalah....", options: 
-      ["Elemen pertama dalam daftar", 
-      "Elemen terakhir dalam daftar",
-      "Elemen terbesar dari semua elemen",
-      "Elemen yang lebih kecil dari semua elemen lain",
-      "Elemen tengah dari bagian yang tersisa"] },
+{ question: "Seseorang memiliki daftar 1.000 nama yang sudah diurutkan secara alfabet. Ia ingin mencari nama “Khalid”. Strategi pencarian paling efisien untuk data ini adalah....", options: 
+      ["Pencarian Linear", 
+      "Pencarian Biner",
+      "Pencarian Beruntun dengan Sentinel",
+      "Membaca satu per satu",
+      "Menyalin daftar ke dokumen baru"] },
   
 { question: "Hal yang dapat menggagalkan pencarian biner adalah....", options: 
       ["Daftar tidak terurut", 
@@ -55,14 +55,14 @@ const questions = [
       "Mulai pencarian dari awal",
       "Lakukan pencarian berurutan"] },
 
-{ question: "Diberikan daftar terurut berikut:<br>5, 10, 15, 20, 25, 30, 35, 40, 45, 50<br>Menggunakan algoritma pencarian biner, langkah pertama adalah menentukan indeks tengah. Setelah itu, bandingkan nilai tengah dengan nilai target, yaitu <b>20</b>. Nilai tengahnya adalah....", options: 
+{ question: "Diberikan barisan angka terurut berikut:<br>5, 10, 15, 20, 25, 30, 35, 40, 45, 50<br>Menggunakan algoritma pencarian biner, langkah pertama adalah menentukan indeks tengah. Setelah itu, bandingkan nilai tengah dengan nilai target, yaitu <b>20</b>. Nilai tengahnya adalah....", options: 
       ["15", 
       "20",
       "25",
       "30",
       "35"] },
 
-{ question: "Diberikan daftar terurut berikut:<br>10, 20, 30, 40, 50, 60, 70, 80, 90, 100<br>Gunakan algoritma pencarian biner untuk mencari nilai <b>70</b>. Setelah membandingkan nilai tengah pertama dengan target, langkah berikutnya adalah....", options: 
+{ question: "Diberikan barisan angka terurut berikut:<br>10, 20, 30, 40, 50, 60, 70, 80, 90, 100<br>Gunakan algoritma pencarian biner untuk mencari nilai <b>70</b>. Setelah membandingkan nilai tengah pertama dengan target, langkah berikutnya adalah....", options: 
       ["Lanjutkan pencarian ke bagian kiri daftar", 
       "Lanjutkan pencarian ke bagian kanan daftar",
       "Nilai ditemukan di tengah pertama",
@@ -189,7 +189,7 @@ loadProgress();
 renderQuestion(currentQuestionIndex);
 renderNavigation();
 
-const TOTAL_TIME = 50 * 60; // 50 menit dalam detik
+const TOTAL_TIME = 30 * 60; // 30 menit dalam detik
 const TIMER_KEY = 'kuis_biner_startTime';
 let timer;
 let timerElement = document.querySelector('.timer');
@@ -234,9 +234,9 @@ startTimer();
 const correctAnswers = ["Data harus terurut",
   "Lanjutkan pencarian ke setengah kiri",
   "Lebih efisien dalam waktu pencarian pada data yang besar",
-  "Indeks -1 atau indikasi bahwa nilai tidak ditemukan",
-  "Membagi dan menaklukkan (Divide and Conquer)",
-  "Elemen tengah dari bagian yang tersisa",
+  "Daftar A, karena datanya terurut sehingga bisa dipecah menjadi dua bagian",
+  "Membagi dan menaklukkan <i>(Divide and Conquer)</i>",
+  "Pencarian Biner",
   "Daftar tidak terurut",
   "Cek bagian kanan dari daftar",
   "25",

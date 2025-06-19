@@ -9,6 +9,7 @@ function startSearch() {
 
     document.getElementById("search-box").innerText = target;
     document.getElementById("result").innerHTML = "";
+    document.getElementById("narration").innerHTML = "";
     currentIndex = 0; 
     steps = 0;
 
@@ -16,7 +17,7 @@ function startSearch() {
         item.classList.remove('found', 'not-found');
     });
 
-    document.getElementById("search-box").style.transform = `translateX(0px)`; // Mulai dari elemen pertama
+    document.getElementById("search-box").style.transform = `translateX(0px)`;
     searchStep(target);
 }
 
@@ -26,15 +27,17 @@ function searchStep(target) {
         const currentElement = document.getElementById(`item${currentIndex}`);
         const searchBox = document.getElementById("search-box");
 
-        // Ambil posisi elemen yang dibandingkan
         const elementRect = currentElement.getBoundingClientRect();
         const listContainerRect = document.getElementById("list-container").getBoundingClientRect();
-
-        // Hitung pergeseran berdasarkan posisi relatif dalam container
         const offsetX = elementRect.left - listContainerRect.left;
 
-        // Pindahkan kotak pencarian ke atas elemen yang dibandingkan
         searchBox.style.transform = `translateX(${offsetX}px)`;
+
+        // Tambahkan narasi langkah
+        const narrationText = `Langkah ${steps}: Memeriksa angka ${list[currentIndex]} di indeks ke-${currentIndex + 1} dan membandingkan dengan angka yang dicari (${target})...`;
+        const narrationDiv = document.getElementById("narration");
+        narrationDiv.innerHTML += `<div>${narrationText}</div>`;
+        narrationDiv.scrollTop = narrationDiv.scrollHeight;
 
         setTimeout(() => {
             if (list[currentIndex] === target) {
@@ -42,14 +45,16 @@ function searchStep(target) {
                 searchBox.style.backgroundColor = 'green';
                 document.getElementById("result").innerHTML = `Angka <strong>${target}</strong> ditemukan dalam daftar setelah <span class="text-success">${steps}</span> langkah.<br>Angka <strong>${target}</strong> ditemukan dalam daftar pada indeks ke-<span class="text-success">${currentIndex+1}</span>.<br>
                 Berdasarkan tujuan pencariannya, hasil yang ditampilkan hanya akan mengembalikan indeks dari angka <strong>${target}</strong> yang pertama kali ditemukan, walaupun setelahnya masih ada angka <strong>${target}</strong> yang lain.`;
+                narrationDiv.innerHTML += `<div>Angka <strong>${target}</strong> cocok dengan elemen di indeks ke-${currentIndex + 1}. Pencarian selesai!</div>`;
             } else {
                 currentElement.classList.add('not-found');
+                narrationDiv.innerHTML += `<div>Angka ${list[currentIndex]} tidak sama dengan ${target}, lanjut ke elemen berikutnya...</div>`;
                 searchBox.style.backgroundColor = 'red';
                 currentIndex++;
                 setTimeout(() => {
                     searchBox.style.backgroundColor = 'yellow';
                     searchStep(target);
-                }, 1000);
+                }, 3000);
             }
         }, 1000);
     } else {
@@ -62,14 +67,15 @@ const list2 = [3, 5, 7, 9, 11, 13, 15, 17, 19, 21, 17, 20];
 let currentIndex2 = 0;
 let steps2 = 0;
 let foundIndexes = [];
-let target2 = null; // global
+let target2 = null;
 
 function startSearch2() {
-    target2 = parseInt(document.getElementById("target2").value); // global
+    target2 = parseInt(document.getElementById("target2").value);
     if (isNaN(target2)) return alert("Masukkan angka yang valid!");
 
     document.getElementById("search-box2").innerText = target2;
     document.getElementById("result2").innerHTML = "";
+    document.getElementById("narration2").innerHTML = "";
     currentIndex2 = 0;
     steps2 = 0;
     foundIndexes = [];
@@ -79,7 +85,7 @@ function startSearch2() {
     });
 
     document.getElementById("search-box2").style.transform = `translateX(0px)`;
-    searchStep2(); // tidak perlu kirim parameter lagi
+    searchStep2();
 }
 
 function searchStep2() {
@@ -94,13 +100,21 @@ function searchStep2() {
 
         searchBox.style.transform = `translateX(${offsetX}px)`;
 
+        // Tambahkan narasi langkah
+        const narrationText = `Langkah ${steps2}: Memeriksa angka ${list2[currentIndex2]} di indeks ke-${currentIndex2 + 1} dan membandingkan dengan angka yang dicari (${target2})...`;
+        const narrationDiv = document.getElementById("narration2");
+        narrationDiv.innerHTML += `<div>${narrationText}</div>`;
+        narrationDiv.scrollTop = narrationDiv.scrollHeight;
+
         setTimeout(() => {
-            if (list2[currentIndex2] === target2) {  // pakai target2 global
+            if (list2[currentIndex2] === target2) {
                 currentElement.classList.add('found');
                 foundIndexes.push(currentIndex2);
+                narrationDiv.innerHTML += `<div>Angka ${list[currentIndex2]} sama dengan ${target2}</div?`;
                 searchBox.style.backgroundColor = 'green';
             } else {
                 currentElement.classList.add('not-found');
+                narrationDiv.innerHTML += `<div>Angka ${list[currentIndex2]} tidak sama dengan ${target2}, lanjut ke elemen berikutnya...</div>`;
                 searchBox.style.backgroundColor = 'red';
             }
 
@@ -109,8 +123,8 @@ function searchStep2() {
             setTimeout(() => {
                 searchBox.style.backgroundColor = 'yellow';
                 searchStep2();
-            }, 800);
-        }, 800);
+            }, 3000);
+        }, 1000);
     } else {
         if (foundIndexes.length > 0) {
             document.getElementById("result2").innerHTML =
@@ -121,7 +135,7 @@ function searchStep2() {
                 `Angka <strong>${target2}</strong> tidak ditemukan setelah <span class="text-danger">${steps2}</span> langkah.`;
         }
     }
-};
+}
 
 // Aktivitas Siswa 1
 const soalList = document.querySelectorAll(".soal");

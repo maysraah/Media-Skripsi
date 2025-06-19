@@ -9,6 +9,7 @@ function startSearch() {
 
     const container = document.getElementById("list-container");
     document.getElementById("result").innerHTML = "";
+    document.getElementById("narration").innerHTML = ""; // Reset narasi
     currentIndex = 0;
     steps = 0;
 
@@ -40,49 +41,105 @@ function startSearch() {
     searchStepSentinel(target);
 }
 
+// function searchStepSentinel(target) {
+//     if (currentIndex < list.length) {
+//         steps++;
+//         const currentElement = currentIndex === list.length - 1 
+//             ? document.getElementById("sentinel-item") 
+//             : document.getElementById(`item${currentIndex}`);
+//         const searchBox = document.getElementById("search-box");
+
+//         // Hitung posisi offset
+//         const elementRect = currentElement.getBoundingClientRect();
+//         const listContainerRect = document.getElementById("list-container").getBoundingClientRect();
+//         const offsetX = elementRect.left - listContainerRect.left;
+//         searchBox.style.transform = `translateX(${offsetX}px)`;
+
+//         setTimeout(() => {
+//             if (list[currentIndex] === target) {
+//                 if (currentIndex === list.length - 1) {
+//                     // Jika yang ditemukan sentinel -> tidak ditemukan
+//                     currentElement.classList.add('not-found');
+//                     searchBox.style.backgroundColor = 'red';
+//                     document.getElementById("result").innerHTML = `Angka <strong>${target}</strong> <span class="text-danger">tidak ada di dalam daftar angka asli.</span><br>
+//                     Angka <strong>${target}</strong> ditemukan pada indeks <strong>sentinel</strong> setelah <span class="text-success">${steps}</span> langkah.`;
+//                 } else {
+//                     currentElement.classList.add('found');
+//                     searchBox.style.backgroundColor = 'green';
+//                     document.getElementById("result").innerHTML = `Angka <strong>${target}</strong> ditemukan dalam daftar angka asli setelah <span class="text-success">${steps}</span> langkah.`;
+//                 }
+
+//                 // Hapus sentinel dari array dan DOM setelah selesai
+//                 list.pop();
+//                 document.getElementById("sentinel-item")?.remove();
+
+//             } else {
+//                 currentElement.classList.add('not-found');
+//                 currentIndex++;
+//                 setTimeout(() => {
+//                     searchBox.style.backgroundColor = 'yellow';
+//                     searchStepSentinel(target);
+//                 }, 800);
+//             }
+//         }, 800);
+//     }
+// }
+
 function searchStepSentinel(target) {
-    if (currentIndex < list.length) {
+      if (currentIndex < list.length) {
         steps++;
-        const currentElement = currentIndex === list.length - 1 
-            ? document.getElementById("sentinel-item") 
-            : document.getElementById(`item${currentIndex}`);
+
+        const currentElement = currentIndex === list.length - 1
+          ? document.getElementById("sentinel-item")
+          : document.getElementById(`item${currentIndex}`);
         const searchBox = document.getElementById("search-box");
 
-        // Hitung posisi offset
+        // Geser search box
         const elementRect = currentElement.getBoundingClientRect();
-        const listContainerRect = document.getElementById("list-container").getBoundingClientRect();
-        const offsetX = elementRect.left - listContainerRect.left;
+        const listRect = document.getElementById("list-container").getBoundingClientRect();
+        const offsetX = elementRect.left - listRect.left;
         searchBox.style.transform = `translateX(${offsetX}px)`;
 
+        // Tambahkan narasi
+        const narrationDiv = document.getElementById("narration");
+        narrationDiv.innerHTML += `<div>Langkah ${steps}: Bandingkan angka di indeks ke-${currentIndex + 1} (${list[currentIndex]}) dengan angka yang dicari (${target})...</div>`;
+        narrationDiv.scrollTop = narrationDiv.scrollHeight;
+
         setTimeout(() => {
-            if (list[currentIndex] === target) {
-                if (currentIndex === list.length - 1) {
-                    // Jika yang ditemukan sentinel -> tidak ditemukan
-                    currentElement.classList.add('not-found');
-                    searchBox.style.backgroundColor = 'red';
-                    document.getElementById("result").innerHTML = `Angka <strong>${target}</strong> <span class="text-danger">tidak ada di dalam daftar angka asli.</span><br>
-                    Angka <strong>${target}</strong> ditemukan pada indeks <strong>sentinel</strong> setelah <span class="text-success">${steps}</span> langkah.`;
-                } else {
-                    currentElement.classList.add('found');
-                    searchBox.style.backgroundColor = 'green';
-                    document.getElementById("result").innerHTML = `Angka <strong>${target}</strong> ditemukan dalam daftar angka asli setelah <span class="text-success">${steps}</span> langkah.`;
-                }
-
-                // Hapus sentinel dari array dan DOM setelah selesai
-                list.pop();
-                document.getElementById("sentinel-item")?.remove();
-
+          if (list[currentIndex] === target) {
+            if (currentIndex === list.length - 1) {
+              // Sentinel ditemukan = data tidak ada
+              currentElement.classList.add('not-found');
+              searchBox.style.backgroundColor = 'red';
+              document.getElementById("result").innerHTML = `
+                Angka <strong>${target}</strong> <span class="text-danger">tidak ditemukan</span> dalam daftar asli.<br>
+                Diketahui setelah <strong>${steps}</strong> langkah saat mencapai sentinel.
+              `;
+              narrationDiv.innerHTML += `<div>Karena angka ditemukan pada sentinel, maka dapat disimpulkan bahwa <strong>${target}</strong> tidak ada di dalam daftar asli.</div>`;
             } else {
-                currentElement.classList.add('not-found');
-                currentIndex++;
-                setTimeout(() => {
-                    searchBox.style.backgroundColor = 'yellow';
-                    searchStepSentinel(target);
-                }, 800);
+              currentElement.classList.add('found');
+              searchBox.style.backgroundColor = 'green';
+              document.getElementById("result").innerHTML = `
+                Angka <strong>${target}</strong> ditemukan di indeks ke-${currentIndex + 1} setelah <strong>${steps}</strong> langkah.
+              `;
+              narrationDiv.innerHTML += `<div>Angka <strong>${target}</strong> cocok dengan elemen di indeks ke-${currentIndex + 1}. Pencarian selesai!</div>`;
             }
-        }, 800);
+
+            // Bersihkan sentinel
+            list.pop();
+            document.getElementById("sentinel-item")?.remove();
+          } else {
+            currentElement.classList.add('not-found');
+            narrationDiv.innerHTML += `<div>Angka ${list[currentIndex]} tidak sama dengan ${target}, lanjut ke elemen berikutnya...</div>`;
+            currentIndex++;
+            setTimeout(() => {
+              searchBox.style.backgroundColor = 'yellow';
+              searchStepSentinel(target);
+            }, 3000);
+          }
+        }, 1000);
+      }
     }
-}
 
 // Cek Jawaban Aktivitas Siswa 3
 document.getElementById('cekJawaban').addEventListener('click', function () {

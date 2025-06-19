@@ -106,7 +106,8 @@
                 <button class="btn btn-success" onclick="startSearch()">Mulai Pencarian Linear</button>
             </div>
 
-            <div id="result" class="mt-4 fw-bold"></div><br><br>
+            <div id="result" class="mt-4 fw-bold"></div><br>
+            <div id="narration" class="mt-2" style="font-style: italic; max-height: 150px; overflow-y: auto;"></div><br><br>
     </div>
 
     <div class="pola-wrapper">
@@ -136,6 +137,7 @@
             </div>
     
             <div id="result2" class="mt-4 fw-bold"></div>
+            <div id="narration2" class="mt-2" style="font-style: italic; max-height: 150px; overflow-y: auto;"></div>
     </div>
 </div>
 

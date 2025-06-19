@@ -133,6 +133,15 @@
         </ul>
 
         <ul class="navbar-nav ml-auto">
+            @auth
+                @if(Auth::user()->role === 'guru')
+                    <li class="nav-item">
+                        <a href="{{ route('dashboard-guru') }}" class="btn btn-outline-secondary btn-wide px-4 py-2 mx-2">
+                            Halaman Guru
+                        </a>
+                    </li>
+                @endif
+            @endauth
             <li>
                 <button type="button" class="btn btn-primary btn-wide px-4 py-2" data-bs-toggle="modal" data-bs-target="#petunjukModal">
                     Petunjuk Pengerjaan
